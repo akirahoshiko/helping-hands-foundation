@@ -2,6 +2,9 @@ import Link from "next/link";
 import { site, socialLinks } from "@/config/site";
 import { causes } from "@/content/causes";
 import { Logo } from "./Logo";
+import { Newsletter } from "./Newsletter";
+
+const linkCls = "hover:text-white hover:underline underline-offset-4";
 
 export function Footer() {
   const c = site.contact;
@@ -9,11 +12,22 @@ export function Footer() {
   const year = 2026;
   return (
     <footer className="bg-forest-950 text-cream-100">
-      <div className="container-site grid grid-cols-1 gap-12 py-16 md:grid-cols-12 md:py-20">
+      {/* Newsletter (Pencils of Promise / Habitat pattern) */}
+      <div className="border-b border-cream-100/10">
+        <div className="container-site grid grid-cols-1 items-center gap-6 py-12 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <h2 className="text-[1.9rem] !text-cream-50">Stay close to the work.</h2>
+            <p className="mt-1 text-cream-100/75">Occasional updates on our programmes and appeals. No spam, unsubscribe any time.</p>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8"><Newsletter /></div>
+        </div>
+      </div>
+
+      <div className="container-site grid grid-cols-1 gap-12 py-14 md:grid-cols-12 md:py-16">
         <div className="md:col-span-4">
           <Logo tone="light" />
           <p className="mt-5 max-w-sm text-[0.98rem] text-cream-200/80">{site.description}</p>
-          <Link href="/donate" className="mt-6 inline-flex items-center gap-2 font-semibold text-gold-300 underline-offset-4 hover:underline">
+          <Link href="/donate" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-gold-400 px-5 font-bold text-forest-950 hover:bg-gold-300">
             Make a donation <span aria-hidden="true">→</span>
           </Link>
         </div>
@@ -21,9 +35,11 @@ export function Footer() {
         <nav aria-label="Footer: the foundation" className="md:col-span-2">
           <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Foundation</h2>
           <ul className="mt-4 space-y-2.5 text-[0.97rem]">
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/about">About us</Link></li>
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/transparency">Transparency</Link></li>
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/contact">Contact</Link></li>
+            <li><Link className={linkCls} href="/about">About us</Link></li>
+            <li><Link className={linkCls} href="/about#team">Our team</Link></li>
+            <li><Link className={linkCls} href="/news">News</Link></li>
+            <li><Link className={linkCls} href="/transparency">Transparency</Link></li>
+            <li><Link className={linkCls} href="/safeguarding">Safeguarding</Link></li>
           </ul>
         </nav>
 
@@ -31,25 +47,21 @@ export function Footer() {
           <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Our causes</h2>
           <ul className="mt-4 space-y-2.5 text-[0.97rem]">
             {causes.map((cause) => (
-              <li key={cause.slug}><Link className="hover:text-white hover:underline underline-offset-4" href={`/causes/${cause.slug}`}>{cause.title}</Link></li>
+              <li key={cause.slug}><Link className={linkCls} href={`/causes/${cause.slug}`}>{cause.title}</Link></li>
             ))}
+            <li><Link className={linkCls} href="/get-involved">Get involved</Link></li>
           </ul>
         </nav>
 
         <div className="md:col-span-3">
-          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Get involved</h2>
-          <ul className="mt-4 space-y-2.5 text-[0.97rem]">
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/get-involved#volunteer">Volunteer</Link></li>
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/get-involved#partnership">Partner with us</Link></li>
-            <li><Link className="hover:text-white hover:underline underline-offset-4" href="/get-involved#in-kind">Give in kind</Link></li>
+          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Contact</h2>
+          <ul className="mt-4 space-y-2.5 text-[0.97rem] text-cream-200/90">
+            {c.email && <li><a className={`${linkCls} break-all`} href={`mailto:${c.email}`}>{c.email}</a></li>}
+            {c.phone && <li><a className={linkCls} href={`tel:${c.phone.replace(/[^\d+]/g, "")}`}>{c.phone}</a></li>}
+            {c.whatsapp && <li><a className={linkCls} href={`https://wa.me/${c.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>}
+            {c.address && <li>{c.address}</li>}
+            {c.officeHours && <li className="text-cream-200/70">{c.officeHours}</li>}
           </ul>
-          {(c.email || c.phone || c.address) && (
-            <ul className="mt-6 space-y-1.5 text-[0.95rem] text-cream-200/85">
-              {c.email && <li><a className="hover:text-white hover:underline" href={`mailto:${c.email}`}>{c.email}</a></li>}
-              {c.phone && <li><a className="hover:text-white hover:underline" href={`tel:${c.phone.replace(/[^\d+]/g, "")}`}>{c.phone}</a></li>}
-              {c.address && <li>{c.address}</li>}
-            </ul>
-          )}
           {socials.length > 0 && (
             <ul className="mt-5 flex flex-wrap gap-3 text-[0.9rem]">
               {socials.map((s) => (
@@ -61,11 +73,16 @@ export function Footer() {
       </div>
 
       <div className="border-t border-cream-100/10">
-        <div className="container-site flex flex-col gap-3 py-6 text-[0.85rem] text-cream-200/65 md:flex-row md:items-center md:justify-between">
-          <p>© {year} {site.name}. {site.photoNote} <Link href="/photo-credits" className="underline underline-offset-2 hover:text-white">Photo credits</Link></p>
+        <div className="container-site flex flex-col gap-3 py-6 text-[0.85rem] text-cream-200/65 lg:flex-row lg:items-center lg:justify-between">
+          <p>
+            © {year} {site.name}.{" "}
+            {site.demo && <>A portfolio demo of a fictional organisation, designed &amp; built by Peace Ejiga. </>}
+            {site.photoNote} <Link href="/photo-credits" className="underline underline-offset-2 hover:text-white">Photo credits</Link>
+          </p>
           <p className="flex shrink-0 gap-4 whitespace-nowrap">
             <Link href="/privacy" className="hover:text-white hover:underline">Privacy</Link>
             <Link href="/donation-policy" className="hover:text-white hover:underline">Donation policy</Link>
+            <Link href="/safeguarding" className="hover:text-white hover:underline">Safeguarding</Link>
           </p>
         </div>
       </div>

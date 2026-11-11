@@ -1,4 +1,5 @@
 import "server-only";
+import { site } from "@/config/site";
 
 /**
  * Server-side configuration read from environment variables.
@@ -48,7 +49,7 @@ export function getFormDelivery(): FormDelivery {
   const to = process.env.FORMS_TO_EMAIL?.trim();
   const from = process.env.FORMS_FROM_EMAIL?.trim();
   if (resendKey && to && from) return { mode: "resend", apiKey: resendKey, to, from };
-  const endpoint = process.env.FORMSPREE_ENDPOINT?.trim();
+  const endpoint = process.env.FORMSPREE_ENDPOINT?.trim() || site.forms.formspreeFallback;
   if (endpoint && /^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint)) return { mode: "formspree", endpoint };
   return { mode: "none" };
 }

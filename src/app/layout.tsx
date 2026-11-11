@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Serif_Display, Figtree } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TopBar } from "@/components/TopBar";
 import { site } from "@/config/site";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
         </noscript>
+        <TopBar />
         <Header />
         <main id="main" className="flex-1">
           {children}

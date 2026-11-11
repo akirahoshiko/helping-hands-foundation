@@ -63,6 +63,12 @@ export const enquirySchema = z.object({
 });
 export type EnquiryInput = z.infer<typeof enquirySchema>;
 
+export const newsletterSchema = z.object({
+  email,
+  website: z.string().optional().default(""),
+  startedAt: z.number().optional(),
+});
+
 /** Turn zod issues into { field: message } for the form UI */
 export function fieldErrors(error: z.ZodError) {
   const out: Record<string, string> = {};

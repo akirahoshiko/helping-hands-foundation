@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Arrow, ButtonLink, PageHeader, Picture } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { causes } from "@/content/causes";
+import { Progress } from "@/components/Widgets";
 
 export const metadata: Metadata = {
   title: "Our causes",
@@ -37,6 +38,10 @@ export default function CausesPage() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 max-w-md">
+                  <p className="mb-2 text-[0.8rem] font-bold tracking-[0.12em] text-gold-600 uppercase">{cause.campaign.name}</p>
+                  <Progress raised={cause.campaign.raised} goal={cause.campaign.goal} />
+                </div>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <ButtonLink href={`/causes/${cause.slug}`} variant="primary" className="group">
                     Learn more <Arrow />

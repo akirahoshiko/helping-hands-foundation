@@ -15,10 +15,16 @@ export function DonateForm({ payments }: { payments: Status }) {
   const initialCause = designations.some((d) => d.value === params.get("cause")) ? (params.get("cause") as string) : "general";
   const cancelled = params.get("status") === "cancelled";
 
+  // Monthly can be explored in demo mode (nothing is charged); on a live site it needs confirmed recurring support.
+  const monthlyAvailable = payments.recurring || !payments.active;
+  const qAmount = Number(params.get("amount"));
+  const qIsPreset = (SUGGESTED_AMOUNTS as readonly number[]).includes(qAmount);
+  const qValid = Number.isFinite(qAmount) && qAmount >= MIN_DONATION && qAmount <= MAX_DONATION;
+
   const [step, setStep] = useState<Step>("form");
-  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [preset, setPreset] = useState<number | "other">(25);
-  const [custom, setCustom] = useState("");
+  const [frequency, setFrequency] = useState<"one-time" | "monthly">(params.get("frequency") === "monthly" && monthlyAvailable ? "monthly" : "one-time");
+  const [preset, setPreset] = useState<number | "other">(qIsPreset ? qAmount : qValid ? "other" : 25);
+  const [custom, setCustom] = useState(qValid && !qIsPreset ? String(qAmount) : "");
   const [designation, setDesignation] = useState(initialCause);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -101,8 +107,8 @@ export function DonateForm({ payments }: { payments: Status }) {
       <div className="lg:col-span-7">
         <div className="space-y-4">
           {!payments.active && (
-            <Notice tone="warn" title="Online donations are not active yet">
-              You can explore the donation form, but no payment will be taken and no donation will be recorded. Secure payments will be switched on once the foundation’s payment account is approved.
+            <Notice tone="warn" title="Demo mode: payments are not connected">
+              This is a portfolio demonstration of a fictional foundation. Explore the full donation journey: no payment will be taken and no donation will be recorded.
             </Notice>
           )}
           {payments.active && payments.testMode && (
@@ -124,7 +130,7 @@ export function DonateForm({ payments }: { payments: Status }) {
               <legend className="font-display text-[1.45rem] text-forest-900">1. How often?</legend>
               <div className="mt-4 grid grid-cols-2 gap-2 rounded-full bg-cream-100 p-1.5">
                 {(["one-time", "monthly"] as const).map((f) => {
-                  const disabled = f === "monthly" && !payments.recurring;
+                  const disabled = f === "monthly" && !monthlyAvailable;
                   return (
                     <label key={f} className={`relative flex min-h-12 cursor-pointer items-center justify-center rounded-full text-[0.98rem] font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-gold-400 ${frequency === f ? "bg-forest-800 text-cream-50 shadow-sm" : "text-forest-900"} ${disabled ? "cursor-not-allowed opacity-50" : ""}`}>
                       <input type="radio" name="frequency" value={f} checked={frequency === f} disabled={disabled} onChange={() => setFrequency(f)} className="sr-only" data-field={f === "one-time" ? "frequency" : undefined} />
@@ -133,7 +139,7 @@ export function DonateForm({ payments }: { payments: Status }) {
                   );
                 })}
               </div>
-              {!payments.recurring && <p className="mt-3 text-[0.92rem] text-muted">Monthly giving will be offered once recurring payments in US dollars are confirmed for the foundation’s account.</p>}
+              {!monthlyAvailable && <p className="mt-3 text-[0.92rem] text-muted">Monthly giving will be offered once recurring payments in US dollars are confirmed for the foundation’s account.</p>}
               {err("frequency")}
             </fieldset>
 
@@ -261,12 +267,12 @@ export function DonateForm({ payments }: { payments: Status }) {
 
         {step === "demo" && (
           <section aria-labelledby={`${uid}-demo`} className="mt-6 rounded-[1.8rem] border border-gold-400/50 bg-white p-6 sm:p-9" role="status">
-            <h2 id={`${uid}-demo`} ref={reviewRef} tabIndex={-1} className="text-[1.9rem] outline-none">Payments are not active yet</h2>
+            <h2 id={`${uid}-demo`} ref={reviewRef} tabIndex={-1} className="text-[1.9rem] outline-none">Demo complete: no payment taken</h2>
             <p className="mt-4 text-[1.05rem] text-muted">
               This is where you would continue to the secure checkout to give <strong className="text-forest-900">{formatUsd(amount)} {CURRENCY}</strong> {frequencyText} to <strong className="text-forest-900">{designationLabel(designation)}</strong>.
             </p>
             <p className="mt-3 text-[1.05rem] text-muted">
-              Online payments haven’t been switched on, so <strong className="text-forest-900">no payment was taken and no donation was recorded</strong>. Thank you for your patience while the foundation completes its payment setup.
+              Because this is a portfolio demo, payments are not connected, so <strong className="text-forest-900">no payment was taken and no donation was recorded</strong>. On a live site, the next step is Paystack’s secure checkout, and the gift is confirmed only after the server verifies the payment.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button type="button" onClick={() => setStep("form")} className={buttonClass("outline")}>Back to the form</button>

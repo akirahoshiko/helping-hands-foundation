@@ -7,23 +7,10 @@ export type DeliveryResult = { ok: true } | { ok: false; reason: "not-configured
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-/** Deliver a contact or get-involved message. Returns ok only when the provider accepted it. */
-export async function deliverEnquiry(input: EnquiryInput): Promise<DeliveryResult> {
+/** Send one message through the configured provider. ok only when the provider accepted it. */
+async function deliver(subject: string, lines: [string, string][], replyTo: string): Promise<DeliveryResult> {
   const d = getFormDelivery();
   if (d.mode === "none") return { ok: false, reason: "not-configured" };
-
-  const kindLabel = input.kind === "involvement" ? "Get involved" : "Contact";
-  const interest = input.interest ? interestLabels[input.interest] : "";
-  const subject = `${site.shortName} website · ${kindLabel}${interest ? ` (${interest})` : ""}${input.subject ? `: ${input.subject}` : ""} · ${input.name}`;
-  const lines = [
-    ["Form", kindLabel],
-    ["Name", input.name],
-    ["Email", input.email],
-    ...(interest ? [["Interest", interest]] : []),
-    ...(input.subject ? [["Subject", input.subject]] : []),
-    ["Message", input.message],
-  ] as [string, string][];
-
   try {
     if (d.mode === "resend") {
       const res = await fetch("https://api.resend.com/emails", {
@@ -32,7 +19,7 @@ export async function deliverEnquiry(input: EnquiryInput): Promise<DeliveryResul
         body: JSON.stringify({
           from: d.from,
           to: [d.to],
-          reply_to: input.email,
+          reply_to: replyTo,
           subject,
           text: lines.map(([k, v]) => `${k}: ${v}`).join("\n\n"),
           html: lines.map(([k, v]) => `<p><strong>${esc(k)}:</strong><br>${esc(v).replace(/\n/g, "<br>")}</p>`).join(""),
@@ -41,15 +28,35 @@ export async function deliverEnquiry(input: EnquiryInput): Promise<DeliveryResul
       });
       return res.ok ? { ok: true } : { ok: false, reason: "failed" };
     }
-
     const res = await fetch(d.endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ _subject: subject, _replyto: input.email, ...Object.fromEntries(lines) }),
+      body: JSON.stringify({ _subject: subject, _replyto: replyTo, ...Object.fromEntries(lines) }),
       signal: AbortSignal.timeout(15000),
     });
     return res.ok ? { ok: true } : { ok: false, reason: "failed" };
   } catch {
     return { ok: false, reason: "failed" };
   }
+}
+
+/** Contact and Get Involved messages */
+export function deliverEnquiry(input: EnquiryInput) {
+  const kindLabel = input.kind === "involvement" ? "Get involved" : "Contact";
+  const interest = input.interest ? interestLabels[input.interest] : "";
+  const subject = `${site.shortName} website · ${kindLabel}${interest ? ` (${interest})` : ""}${input.subject ? `: ${input.subject}` : ""} · ${input.name}`;
+  const lines: [string, string][] = [
+    ["Form", kindLabel],
+    ["Name", input.name],
+    ["Email", input.email],
+    ...(interest ? ([["Interest", interest]] as [string, string][]) : []),
+    ...(input.subject ? ([["Subject", input.subject]] as [string, string][]) : []),
+    ["Message", input.message],
+  ];
+  return deliver(subject, lines, input.email);
+}
+
+/** Newsletter sign-ups */
+export function deliverNewsletter(email: string) {
+  return deliver(`${site.shortName} website · Newsletter sign-up · ${email}`, [["Form", "Newsletter sign-up"], ["Email", email]], email);
 }

@@ -1,6 +1,12 @@
 # Helping Hands Foundation website
 
-The website for **Helping Hands Foundation**, a new foundation supporting orphans, vulnerable children in Africa, and people who need financial help with medical treatment.
+The website for **Helping Hands Foundation**, a foundation supporting orphans, vulnerable children in Africa, and people who need financial help with medical treatment.
+
+> **Portfolio demo.** Helping Hands Foundation is a fictional organisation created to showcase this website, designed and built by Peace Ejiga. The registration, team, impact figures, campaign totals, stories, annual report and policies are **sample content**, and photographs are illustrative Unsplash images. `demo: true` in `src/config/site.ts` shows a "Portfolio demo · fictional organisation" notice on every page and labels sample figures. Payments run in demo mode (no Paystack key), so nothing is ever charged. Contact, volunteer and newsletter forms deliver for real to the configured Formspree inbox.
+>
+> Design research: 23 NGO websites were reviewed (charity: water, GiveDirectly, UNICEF, Save the Children, WaterAid, Malala Fund, Room to Read, Pencils of Promise, SOS Children's Villages, Partners In Health, MSF, World Vision, CARE, Plan International, Mercy Corps, Compassion, Action Against Hunger, ONE, Lagos Food Bank, Slum2School, Habitat for Humanity, Oxfam, Amref). Patterns adopted: donation box in the hero, impact-number band, campaign progress bars, "what your gift can do" calculator, transparency donut, news cards, appeal top bar and footer newsletter. Policies draw on GiveDirectly's donor privacy policy, the Nigeria Data Protection Act 2023, the Donor Bill of Rights and Bond / NGO safeguarding guidance.
+>
+> **To turn the demo into a real site:** replace everything in `src/config/site.ts`, `src/content/*` and the annual report page with verified information, set `demo: false`, and follow "Payments" below.
 
 Built with **Next.js 16 (App Router, Cache Components)**, **TypeScript** and **Tailwind CSS 4**. Donations in **US dollars** through **Paystack**; contact and volunteer forms delivered by **Resend** or **Formspree**.
 
@@ -30,15 +36,17 @@ With no environment variables set, the whole site works and the donation and con
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Home: hero, purpose, three causes, how giving works, accountability, volunteer and partner invitations |
-| `/about` | Mission, vision, values, approach; team, history and registration appear once supplied |
+| `/` | Home: photo hero with quick-donate box, impact numbers, causes with campaign progress, gift calculator, where-the-money-goes chart, news, team, get involved |
+| `/about` | Story, mission, vision, milestones, values, approach, team, registration |
 | `/causes` and `/causes/[orphan-care, children-education, medical-support]` | Overview and a detail page per cause: the need, intended support, ways to help |
 | `/donate` | Donation form: one-time or monthly, $10 / $25 / $50 / $100 or custom, choice of cause, review step |
 | `/donate/complete` | Paystack return page: verifies the payment server-side before thanking the donor |
 | `/get-involved` | Volunteer, corporate partnership, in-kind contributions, interest form |
-| `/transparency` | Accountability commitments; reports and registration with honest empty states |
+| `/transparency`, `/transparency/annual-report-2025` | Spending breakdown, commitments, reports, financial summary, registration |
+| `/news`, `/news/[slug]` | News and programme stories |
+| `/safeguarding` | Safeguarding commitments, code of conduct, how to report a concern |
 | `/contact` | Contact form; contact details and social links appear only when supplied |
-| `/privacy`, `/donation-policy` | Draft policies matching the site's real behaviour, with items to confirm highlighted |
+| `/privacy`, `/donation-policy` | Privacy policy (NDPA-aligned) and donation policy (refunds, monthly giving, use of funds, donor promise) |
 | `/photo-credits` | Source of every illustrative photograph |
 
 ---

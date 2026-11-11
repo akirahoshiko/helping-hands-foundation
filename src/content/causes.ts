@@ -18,6 +18,10 @@ export type Cause = {
   need: string[];
   support: { title: string; text: string }[];
   ways: { title: string; text: string; href: string; cta: string }[];
+  /** Sample campaign progress (USD) for the portfolio demo */
+  campaign: { name: string; raised: number; goal: number };
+  /** What a gift could provide (sample, illustrative) */
+  gifts: { amount: number; text: string }[];
   note?: string;
 };
 
@@ -25,6 +29,13 @@ export const causes: Cause[] = [
   {
     slug: "orphan-care",
     designation: "orphan-care",
+    campaign: { name: "Safe Homes Fund", raised: 18450, goal: 25000 },
+    gifts: [
+      { amount: 10, text: "a week of nutritious meals for one child" },
+      { amount: 25, text: "a set of bedding and clothing for a child in care" },
+      { amount: 50, text: "a month of food and essentials for a caregiver’s household" },
+      { amount: 100, text: "a full year of school fees for one child" },
+    ],
     title: "Orphan Care",
     short: "Daily necessities, safe care and the chance to keep learning.",
     summary:
@@ -49,6 +60,13 @@ export const causes: Cause[] = [
   {
     slug: "children-education",
     designation: "children-education",
+    campaign: { name: "Back-to-School Appeal 2026", raised: 9800, goal: 15000 },
+    gifts: [
+      { amount: 10, text: "exercise books and stationery for one pupil" },
+      { amount: 25, text: "a school uniform and a pair of shoes" },
+      { amount: 50, text: "a complete back-to-school kit, bag included" },
+      { amount: 100, text: "school meals for a child for a whole term" },
+    ],
     title: "Children’s Wellbeing & Education",
     short: "Learning materials, nutrition and access to opportunity.",
     summary:
@@ -73,6 +91,13 @@ export const causes: Cause[] = [
   {
     slug: "medical-support",
     designation: "medical-support",
+    campaign: { name: "Medical Support Fund", raised: 31200, goal: 40000 },
+    gifts: [
+      { amount: 10, text: "a course of essential medicines" },
+      { amount: 25, text: "diagnostic tests for one patient" },
+      { amount: 50, text: "a follow-up consultation and treatment" },
+      { amount: 100, text: "a contribution towards a life-changing surgery" },
+    ],
     title: "Medical Support",
     short: "Help with treatment costs and essential care.",
     summary:

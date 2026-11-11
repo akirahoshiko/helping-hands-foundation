@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Arrow, ButtonLink, Notice, Picture } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { causes, type Cause } from "@/content/causes";
+import { Progress } from "@/components/Widgets";
+import { site } from "@/config/site";
 
 export function CauseDetail({ cause }: { cause: Cause }) {
   const others = causes.filter((c) => c.slug !== cause.slug);
@@ -19,6 +21,10 @@ export function CauseDetail({ cause }: { cause: Cause }) {
             </nav>
             <h1 className="mt-5 text-[2.6rem] sm:text-[3.5rem]">{cause.title}</h1>
             <p className="mt-5 max-w-xl text-[1.15rem] text-muted">{cause.summary}</p>
+            <div className="mt-7 max-w-md rounded-2xl border border-cream-200 bg-white p-5">
+              <p className="text-[0.8rem] font-bold tracking-[0.12em] text-gold-600 uppercase">{cause.campaign.name}{site.demo ? " · sample" : ""}</p>
+              <div className="mt-3"><Progress raised={cause.campaign.raised} goal={cause.campaign.goal} /></div>
+            </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={`/donate?cause=${cause.designation}`} variant="gold" className="group">
                 Donate to this cause <Arrow />
@@ -59,6 +65,18 @@ export function CauseDetail({ cause }: { cause: Cause }) {
                 <h3 className="font-display text-[1.55rem] !text-gold-300">{s.title}</h3>
                 <p className="mt-2 text-cream-100/80">{s.text}</p>
               </Reveal>
+            ))}
+          </ul>
+          <h3 className="mt-16 font-sans text-[0.85rem] font-semibold tracking-[0.16em] !text-gold-300 uppercase">What your gift could provide</h3>
+          <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cause.gifts.map((g) => (
+              <li key={g.amount}>
+                <Link href={`/donate?amount=${g.amount}&cause=${cause.designation}`} className="group flex h-full flex-col rounded-[1.4rem] bg-forest-800 p-6 transition-colors hover:bg-forest-700">
+                  <span className="font-display text-[2.4rem] leading-none text-gold-300">${g.amount}</span>
+                  <span className="mt-3 text-cream-100/90">{g.text}</span>
+                  <span className="mt-auto pt-4 text-[0.92rem] font-semibold text-gold-300">Give ${g.amount} <span aria-hidden="true">→</span></span>
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
