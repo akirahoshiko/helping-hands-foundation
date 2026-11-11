@@ -8,7 +8,7 @@ The website for **Helping Hands Foundation**, a foundation supporting orphans, v
 >
 > **To turn the demo into a real site:** replace everything in `src/config/site.ts`, `src/content/*` and the annual report page with verified information, set `demo: false`, and follow "Payments" below.
 
-Built with **Next.js 16 (App Router, Cache Components)**, **TypeScript** and **Tailwind CSS 4**. Donations in **US dollars** through **Paystack**; contact and volunteer forms delivered by **Resend** or **Formspree**.
+Built with **Next.js 16 (App Router)**, **TypeScript** and **Tailwind CSS 4**. Donations in **US dollars** through **Paystack**; contact and volunteer forms delivered by **Resend** or **Formspree**.
 
 ---
 
@@ -170,7 +170,25 @@ Nothing below has been invented. Add each item to `src/config/site.ts`, or as no
 
 ## Deployment
 
-Designed for **Vercel**: import the repository, add the environment variables above, and deploy. Any Node.js host that runs `next start` also works.
+Hosted on **Cloudflare Workers** using the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare) (`wrangler.jsonc`, `open-next.config.ts`).
+
+**Connect the GitHub repository (automatic deploys):** Cloudflare dashboard → **Workers & Pages → Create → Import a repository** → choose this repo, then set:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx opennextjs-cloudflare deploy` |
+| Root directory | `/` |
+
+Add environment variables (see above) under the Worker → **Settings → Variables and Secrets**. Store `PAYSTACK_SECRET_KEY` and `RESEND_API_KEY` as **secrets**.
+
+**From your computer:** `npx wrangler login`, then `npm run deploy`. `npm run preview` runs the site locally in the Workers runtime.
+
+Notes:
+- **Cache Components is turned off** (`next.config.ts`): it relies on `setTimeout` behaviour the Workers runtime does not provide, and requests hang. Request-time pages use `connection()` instead.
+- Image optimisation uses the Cloudflare Images binding (`IMAGES`); the free plan includes a monthly transformation allowance.
+- OpenNext warns that Windows is not fully supported for builds; Cloudflare's build servers run Linux, so automatic deploys are unaffected.
+- The site also runs on any Node.js host (`npm run build && npm start`) or on Vercel.
 
 ---
 

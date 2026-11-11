@@ -40,7 +40,10 @@ export function sameOrigin(req: Request) {
   const origin = req.headers.get("origin");
   if (!origin) return true; // non-browser clients; other checks still apply
   try {
-    return new URL(origin).host === new URL(req.url).host;
+    // Compare with the host the browser actually requested. Behind proxies or the Cloudflare
+    // runtime, req.url can carry an internal host, so prefer the forwarded/Host headers.
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || new URL(req.url).host;
+    return new URL(origin).host === host.split(",")[0].trim();
   } catch {
     return false;
   }
