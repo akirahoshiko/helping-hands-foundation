@@ -60,7 +60,8 @@ export function Header() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
 
   return (
-    <header className={`sticky top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${scrolled || open ? "border-b border-cream-200 bg-cream-50/95 shadow-[0_8px_30px_-20px_rgba(15,42,31,0.45)] backdrop-blur-md" : "border-b border-transparent bg-cream-50"}`}>
+    // No backdrop blur while the menu is open: a backdrop filter would trap the fixed menu panel inside the header.
+    <header className={`sticky top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${open ? "border-b border-cream-200 bg-cream-50" : scrolled ? "border-b border-cream-200 bg-cream-50/95 shadow-[0_8px_30px_-20px_rgba(15,42,31,0.45)] backdrop-blur-md" : "border-b border-transparent bg-cream-50"}`}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-forest-900 focus:px-4 focus:py-2 focus:text-cream-50">
         Skip to content
       </a>
