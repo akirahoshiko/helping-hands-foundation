@@ -30,7 +30,7 @@ export const site = {
     "Helping Hands Foundation supports orphans, vulnerable children in Africa, and people who need financial help with medical treatment.",
 
   /** Public site address, used for links, sitemaps and payment callbacks. NEXT_PUBLIC_SITE_URL overrides it. */
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://helpinghands-foundation.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://helping-hands-foundation.peaceomachunyiejiga.workers.dev",
 
   contact: {
     email: "peaceomachunyiejiga@gmail.com",

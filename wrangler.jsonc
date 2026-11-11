@@ -15,9 +15,6 @@
       "service": "helping-hands-foundation"
     }
   ],
-  "images": {
-    "binding": "IMAGES"
-  },
   "observability": {
     "enabled": true
   }

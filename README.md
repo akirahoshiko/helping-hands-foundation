@@ -170,7 +170,7 @@ Nothing below has been invented. Add each item to `src/config/site.ts`, or as no
 
 ## Deployment
 
-Hosted on **Cloudflare Workers** using the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare) (`wrangler.jsonc`, `open-next.config.ts`).
+Live at **https://helping-hands-foundation.peaceomachunyiejiga.workers.dev**. Hosted on **Cloudflare Workers** using the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare) (`wrangler.jsonc`, `open-next.config.ts`).
 
 **Connect the GitHub repository (automatic deploys):** Cloudflare dashboard → **Workers & Pages → Create → Import a repository** → choose this repo, then set:
 
@@ -186,7 +186,7 @@ Add environment variables (see above) under the Worker → **Settings → Variab
 
 Notes:
 - **Cache Components is turned off** (`next.config.ts`): it relies on `setTimeout` behaviour the Workers runtime does not provide, and requests hang. Request-time pages use `connection()` instead.
-- Image optimisation uses the Cloudflare Images binding (`IMAGES`); the free plan includes a monthly transformation allowance.
+- Photos are pre-compressed in `src/assets` and served as static files (`images.unoptimized`), so no image-resizing service is needed.
 - OpenNext warns that Windows is not fully supported for builds; Cloudflare's build servers run Linux, so automatic deploys are unaffected.
 - The site also runs on any Node.js host (`npm run build && npm start`) or on Vercel.
 
