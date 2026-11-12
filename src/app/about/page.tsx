@@ -50,7 +50,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal className="lg:col-span-4 lg:col-start-9" delay={120}>
-            <Picture photo={photos.motherChild} sizes="(min-width: 1024px) 30vw, 100vw" className="aspect-[4/5] rounded-[2rem]" label />
+            <Picture photo={photos.friends} sizes="(min-width: 1024px) 30vw, 100vw" className="aspect-[4/5] rounded-[2rem]" />
           </Reveal>
         </div>
       </section>
@@ -59,8 +59,8 @@ export default function AboutPage() {
       <section aria-labelledby="journey-title" className="bg-sand-100 py-20 lg:py-24">
         <div className="container-site">
           <Reveal><SectionIntro eyebrow="Our journey" title="How we got here" id="journey-title" /></Reveal>
-          <ol className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6">
-            <span aria-hidden="true" className="absolute top-[1.15rem] right-0 left-0 hidden h-0.5 bg-sun-400/60 md:block" />
+          <ol className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-6 md:gap-6">
+            <span aria-hidden="true" className="absolute top-[1.15rem] right-0 left-0 hidden h-0.5 bg-sun-400/60 lg:block" />
             {site.milestones.map((m, i) => (
               <Reveal as="li" key={m.year} delay={i * 80} className="relative">
                 <span className="relative z-10 inline-flex h-9 items-center rounded-full bg-ink-800 px-4 font-display text-[1.1rem] text-sun-300">{m.year}</span>
@@ -127,10 +127,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Registration + demo note */}
+      {/* Registration (shown once details are filled in) */}
       <section className="py-20">
-        <div className="container-site grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {hasRegistration() && (
+        {hasRegistration() && (
+        <div className="container-site mb-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div className="rounded-[1.8rem] border border-sand-200 bg-white p-8">
               <p className="eyebrow">Registration</p>
               <dl className="mt-6 grid grid-cols-1 gap-4 text-[0.98rem] sm:grid-cols-2">
@@ -141,17 +141,9 @@ export default function AboutPage() {
                 {r.authority && <div className="sm:col-span-2"><dt className="text-muted">Note</dt><dd className="font-semibold">{r.authority}</dd></div>}
               </dl>
             </div>
-          )}
-          {site.demo && (
-            <div id="demo" className="scroll-mt-24 rounded-[1.8rem] bg-ink-900 p-8 text-sand-100">
-              <p className="eyebrow !text-sun-300">About this website</p>
-              <h2 className="mt-4 text-[1.8rem] !text-sand-50">A portfolio demonstration</h2>
-              <p className="mt-3 text-sand-100/80">Helping Hands Foundation is a fictional organisation created to showcase this website. The registration, team, figures, stories and reports are sample content, and the photographs are illustrative stock images. Donations are not processed: the payment flow runs in demo mode.</p>
-              <p className="mt-3 text-sand-100/80">Designed and built by Peace Ejiga.</p>
-            </div>
-          )}
         </div>
-        <div className="container-site mt-10 flex flex-col gap-3 sm:flex-row">
+        )}
+        <div className="container-site flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/causes" variant="outline">Our causes</ButtonLink>
           <ButtonLink href="/donate" variant="gold" className="group">Make a Donation <Arrow /></ButtonLink>
         </div>

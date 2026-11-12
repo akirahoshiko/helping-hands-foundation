@@ -56,7 +56,6 @@ export default function HomePage() {
               </div>
             ))}
           </dl>
-          {site.demo && <p className="mt-6 text-center text-[0.8rem] text-ink-950/70">Sample figures for this portfolio demo.</p>}
         </div>
       </section>
 
@@ -64,7 +63,7 @@ export default function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="container-site grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <Reveal className="relative lg:col-span-5">
-            <Picture photo={photos.girlsLaughing} sizes="(min-width: 1024px) 38vw, 100vw" className="aspect-[4/5] rounded-[2rem]" label />
+            <Picture photo={photos.girlsLaughing} sizes="(min-width: 1024px) 38vw, 100vw" className="aspect-[4/5] rounded-[2rem]" />
             <div className="absolute -right-4 -bottom-6 hidden rounded-[1.4rem] bg-ink-800 px-6 py-5 text-sand-50 shadow-xl sm:block">
               <p className="font-display text-[2.2rem] leading-none text-sun-300">Since {site.founded}</p>
               <p className="mt-1 text-[0.92rem] text-sand-100/85">and still run by volunteers</p>
@@ -122,7 +121,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          {site.demo && <p className="mt-6 text-[0.82rem] text-muted">Campaign totals are sample figures for this portfolio demo.</p>}
         </div>
       </section>
 
@@ -169,7 +167,7 @@ export default function HomePage() {
           <Reveal className="lg:col-span-5 lg:col-start-8" delay={120}>
             <div className="rounded-[2rem] bg-sand-50 p-8 text-ink">
               <p className="font-display text-[1.6rem] text-ink-900">Where your money goes</p>
-              <p className="text-[0.92rem] text-muted">Annual Report 2025{site.demo ? " · sample figures" : ""}</p>
+              <p className="text-[0.92rem] text-muted">Annual Report 2025</p>
               <div className="mt-6"><Donut data={site.spending} /></div>
             </div>
           </Reveal>

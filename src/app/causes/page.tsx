@@ -7,7 +7,7 @@ import { Progress } from "@/components/Widgets";
 
 export const metadata: Metadata = {
   title: "Our causes",
-  description: "Orphan Care, Children’s Wellbeing & Education, and Medical Support: the three causes of Helping Hands Foundation.",
+  description: "Orphan Care, Children’s Education, and Medical Support: the three causes of Helping Hands Foundation.",
 };
 
 export default function CausesPage() {
@@ -24,7 +24,7 @@ export default function CausesPage() {
           {causes.map((cause, i) => (
             <Reveal key={cause.slug} className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
               <div className={`lg:col-span-6 ${i % 2 ? "lg:order-2 lg:col-start-7" : ""}`}>
-                <Picture photo={cause.photo} sizes="(min-width: 1024px) 48vw, 100vw" className="aspect-[4/3] rounded-[2rem]" label={i === 0} />
+                <Picture photo={cause.photo} sizes="(min-width: 1024px) 48vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
               </div>
               <div className={`lg:col-span-5 ${i % 2 ? "lg:order-1" : "lg:col-start-8"}`}>
                 <p className="font-display text-[1.2rem] text-sun-600">0{i + 1}</p>

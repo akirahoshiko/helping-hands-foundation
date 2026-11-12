@@ -6,7 +6,7 @@ import { publicPaymentStatus } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Donate",
-  description: "Give once or monthly, in US dollars, to Orphan Care, Children’s Wellbeing & Education, Medical Support, or where it’s needed most.",
+  description: "Give once or monthly, in US dollars, to Orphan Care, Children’s Education, Medical Support, or where it’s needed most.",
 };
 
 export default function DonatePage() {

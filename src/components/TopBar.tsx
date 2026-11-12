@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 
-/** Slim bar above the header: the current appeal, plus an honest demo notice in portfolio mode. */
+/** Slim bar above the header showing the current appeal. */
 export function TopBar() {
   return (
     <div className="bg-ink-950 text-[0.86rem] text-sand-100">
@@ -13,11 +13,6 @@ export function TopBar() {
           </span>
           <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
         </Link>
-        {site.demo && (
-          <p className="text-[0.78rem] text-sand-100/65">
-            Portfolio demo · fictional organisation · <Link href="/about#demo" className="underline underline-offset-2 hover:text-white">learn more</Link>
-          </p>
-        )}
       </div>
     </div>
   );

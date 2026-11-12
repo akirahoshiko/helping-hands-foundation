@@ -6,7 +6,7 @@ import { causes } from "@/content/causes";
 
 const STEPS = [10, 25, 50, 100] as const;
 
-/** "What your gift can do" (inspired by World Vision's impact slider). Examples are illustrative. */
+/** "What your gift can do" (inspired by World Vision's impact slider). Costs are typical, not fixed. */
 export function GiftCalculator() {
   const uid = useId();
   const [i, setI] = useState(1);

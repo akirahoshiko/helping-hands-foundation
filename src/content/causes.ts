@@ -18,9 +18,9 @@ export type Cause = {
   need: string[];
   support: { title: string; text: string }[];
   ways: { title: string; text: string; href: string; cta: string }[];
-  /** Sample campaign progress (USD) for the portfolio demo */
+  /** Campaign progress (USD) */
   campaign: { name: string; raised: number; goal: number };
-  /** What a gift could provide (sample, illustrative) */
+  /** What a gift could provide (typical costs) */
   gifts: { amount: number; text: string }[];
   note?: string;
 };

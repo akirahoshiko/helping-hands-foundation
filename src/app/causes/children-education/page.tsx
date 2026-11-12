@@ -3,7 +3,7 @@ import { CauseDetail } from "@/components/CauseDetail";
 import { getCause } from "@/content/causes";
 
 export const metadata: Metadata = {
-  title: "Children’s Wellbeing & Education",
+  title: "Children’s Education",
   description: "How Helping Hands Foundation intends to support vulnerable children with learning materials, nutrition and access to opportunity.",
 };
 

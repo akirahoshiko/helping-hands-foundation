@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 
   const config = getPaymentConfig();
   if (!config.active) {
-    // Demo state: nothing is charged and nothing is recorded as a donation.
+    // Payments not configured: nothing is charged and nothing is recorded as a donation.
     return Response.json({ ok: false, error: "payments-inactive", reason: config.reason }, { status: 503 });
   }
 

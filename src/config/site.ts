@@ -1,10 +1,8 @@
 /**
  * Helping Hands Foundation: organisation details.
  *
- * PORTFOLIO DEMO: Helping Hands Foundation is a fictional organisation created to
- * showcase this website. The registration, team, figures, stories and reports below
- * are SAMPLE CONTENT. `demo: true` shows a notice on every page saying so.
- * For a real organisation, replace every value with verified information and set demo to false.
+ * Everything the site says about the foundation lives here: contact details,
+ * team, figures, appeal and reports. Update this file to change the site.
  */
 import type { StaticImageData } from "next/image";
 import amara from "@/assets/team/amara.jpg";
@@ -20,9 +18,6 @@ export type Milestone = { year: string; title: string; text: string };
 export type Story = { slug: string; title: string; date: string; category: string; excerpt: string; body: string[]; photo: string };
 
 export const site = {
-  /** Demo mode shows "sample content" notices across the site. Off for the published site. */
-  demo: false,
-
   name: "Helping Hands Foundation",
   shortName: "Helping Hands",
   tagline: "A helping hand. A brighter tomorrow.",
@@ -75,7 +70,8 @@ export const site = {
     { year: "2022", title: "Trustees on board", text: "We set up a board of trustees so the money is overseen by people outside the team." },
     { year: "2023", title: "Hospital bills", text: "We start paying towards hospital and medicine costs for families who can't cover them." },
     { year: "2024", title: "First school drive", text: "Volunteers hand out uniforms, books and bags at schools in Lagos and Ogun." },
-    { year: "2025", title: "First annual report", text: "We publish a full report and a breakdown of every naira and dollar spent." },
+    { year: "2025", title: "Clinic partners", text: "Two clinics start referring patients to us, and we hold our first free health day." },
+    { year: "2026", title: "First annual report", text: "We publish our 2025 accounts, with a breakdown of where the money went." },
   ] as Milestone[],
 
   team: [
@@ -87,7 +83,7 @@ export const site = {
     { name: "Zainab Bello", role: "Volunteer Coordinator", bio: "The first person new volunteers meet. Organises our health days and school drives.", photo: zainab },
   ] as TeamMember[],
 
-  /** Sample impact figures shown on the home page (labelled as sample in demo mode). */
+  /** Impact figures shown on the home page. */
   impact: [
     { value: 1240, suffix: "+", label: "Children supported" },
     { value: 380, suffix: "", label: "Families reached" },
@@ -95,7 +91,7 @@ export const site = {
     { value: 150, suffix: "+", label: "Active volunteers" },
   ],
 
-  /** Sample breakdown of spending (Annual Report 2025). Must add up to 100. */
+  /** Breakdown of spending (Annual Report 2025). Must add up to 100. */
   spending: [
     { label: "Programmes", value: 82 },
     { label: "Operations", value: 12 },

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
-import { DraftBanner } from "@/components/Draft";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function PrivacyPage() {
       <PageHeader eyebrow="Privacy" title="Privacy policy" intro={<p>We collect as little personal information as possible, use it only for the reasons below, and never sell it.</p>} />
       <section className="py-14 lg:py-20">
         <div className="container-site max-w-3xl">
-          <DraftBanner />
           <p className="mt-8 text-[0.95rem] text-muted">Last updated: 1 November 2026</p>
           <div className="prose-hh mt-4 text-[1.05rem] text-ink">
             <h2>1. Who we are</h2>

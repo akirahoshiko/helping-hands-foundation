@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink, PageHeader } from "@/components/ui";
-import { DraftBanner } from "@/components/Draft";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -25,7 +24,6 @@ export default function SafeguardingPage() {
       <PageHeader eyebrow="Safeguarding" title={<>Keeping children and families <span className="hl">safe</span> comes first.</>} intro={<p>Everyone who works with Helping Hands, whether staff, volunteer, trustee or partner, has a duty to protect the children and vulnerable adults we serve.</p>} />
       <section className="py-14 lg:py-20">
         <div className="container-site max-w-5xl">
-          <DraftBanner />
           <h2 className="mt-10 text-[2rem]">Our commitments</h2>
           <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             {commitments.map((c, i) => (

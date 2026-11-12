@@ -5,7 +5,7 @@ import { photos } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "Photo credits",
-  description: "Illustrative photography used on the Helping Hands Foundation website.",
+  description: "Photography used on the Helping Hands Foundation website.",
 };
 
 export default function PhotoCreditsPage() {

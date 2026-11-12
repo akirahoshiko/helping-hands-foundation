@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import type { Photo } from "@/content/photos";
-import { site } from "@/config/site";
 
 type Variant = "primary" | "gold" | "outline" | "light" | "outline-light";
 const variants: Record<Variant, string> = {
@@ -43,16 +42,11 @@ export function SectionIntro({ eyebrow, title, children, align = "left", id }: {
   );
 }
 
-/** Optimised photo with a small, honest "illustrative" label. */
-export function Picture({ photo, className = "", sizes, priority = false, label = false, imgClassName = "" }: { photo: Photo; className?: string; sizes: string; priority?: boolean; label?: boolean; imgClassName?: string }) {
+/** Optimised photo in a rounded frame. */
+export function Picture({ photo, className = "", sizes, priority = false, imgClassName = "" }: { photo: Photo; className?: string; sizes: string; priority?: boolean; imgClassName?: string }) {
   return (
     <figure className={`relative overflow-hidden bg-sand-200 ${className}`}>
       <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} placeholder="blur" className={`object-cover ${imgClassName}`} />
-      {label && site.demo && (
-        <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink-950/70 px-3 py-1 text-[0.72rem] font-medium text-sand-50 backdrop-blur-sm">
-          Illustrative photo
-        </figcaption>
-      )}
     </figure>
   );
 }

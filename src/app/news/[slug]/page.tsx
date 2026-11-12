@@ -33,7 +33,7 @@ export default async function StoryPage({ params }: PageProps<"/news/[slug]">) {
         </div>
       </header>
       <div className="container-site max-w-4xl">
-        <Picture photo={story.photo} priority label sizes="(min-width: 1024px) 56rem, 100vw" className="-mt-2 aspect-[16/9] rounded-[2rem]" />
+        <Picture photo={story.photo} priority sizes="(min-width: 1024px) 56rem, 100vw" className="-mt-2 aspect-[16/9] rounded-[2rem]" />
         <div className="mx-auto max-w-2xl space-y-5 py-12 text-[1.12rem] leading-relaxed">
           <p className="font-display text-[1.45rem] leading-snug text-ink-900">{story.excerpt}</p>
           {story.body.map((p) => <p key={p.slice(0, 30)} className="text-ink/90">{p}</p>)}

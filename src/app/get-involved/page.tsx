@@ -17,7 +17,7 @@ const options = [
     lead: "Give an afternoon",
     text: "Most of our volunteers have day jobs. They tutor on Saturdays, help pack school kits, drive supplies around, or lend us their skills as nurses, accountants or designers.",
     points: ["Weekend tutoring and school drives in Lagos", "Remote help with design, writing and accounts", "We’ll have a chat first to find something that fits"],
-    photo: photos.community,
+    photo: photos.volunteers,
   },
   {
     id: "partnership",
@@ -25,7 +25,7 @@ const options = [
     lead: "For businesses and schools",
     text: "Some of our partners sponsor a school drive, some match what their staff give, and a couple of clinics see patients at a reduced rate. If you have an idea, we’d like to hear it.",
     points: ["Sponsor a school drive or a health day", "Match your staff’s donations", "Offer your services or expertise for free"],
-    photo: photos.gathering,
+    photo: photos.partnersMeeting,
   },
   {
     id: "in-kind",
@@ -33,7 +33,7 @@ const options = [
     lead: "Books, clothes and supplies",
     text: "We always need school supplies, children’s books, clothes, bedding and toiletries. Send us a message first, so we can tell you what we’re short of and sort out delivery.",
     points: ["Books, stationery and school bags", "Clothes, bedding and toiletries", "Please don’t send medicines without talking to us first"],
-    photo: photos.girlWithBook,
+    photo: photos.pupilWriting,
   },
 ];
 
@@ -61,7 +61,7 @@ export default function GetInvolvedPage() {
           {options.map((o, i) => (
             <Reveal as="section" key={o.id} className="grid scroll-mt-28 grid-cols-1 items-center gap-10 lg:grid-cols-12" aria-labelledby={`${o.id}-title`}>
               <div id={o.id} className={`scroll-mt-28 lg:col-span-5 ${i % 2 ? "lg:order-2 lg:col-start-8" : ""}`}>
-                <Picture photo={o.photo} sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/3] rounded-[2rem]" label={i === 0} />
+                <Picture photo={o.photo} sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
               </div>
               <div className={`lg:col-span-6 ${i % 2 ? "lg:order-1" : "lg:col-start-7"}`}>
                 <p className="eyebrow">{o.lead}</p>

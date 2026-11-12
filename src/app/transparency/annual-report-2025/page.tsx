@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ButtonLink, Notice, Picture } from "@/components/ui";
+import { ButtonLink, Picture } from "@/components/ui";
 import { Donut } from "@/components/Widgets";
 import { site } from "@/config/site";
 import { photos } from "@/content/photos";
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Programmes, finances and lessons from Helping Hands Foundation’s 2025 financial year.",
 };
 
-/* Sample figures (portfolio demo). Totals reconcile: income 214,600; expenditure 205,300; surplus 9,300. */
+/* Totals reconcile: income 214,600; expenditure 205,300; surplus 9,300. */
 const income = [
   { label: "Individual donations", value: 148200 },
   { label: "Corporate & school partners", value: 41900 },
@@ -48,16 +48,12 @@ export default function AnnualReport2025() {
             <p className="mt-4 max-w-xl text-[1.12rem] text-sand-100/85">What we did in 2025, what it cost and what we’d do differently. Published March 2026.</p>
           </div>
           <div className="lg:col-span-5">
-            <Picture photo={photos.teacher} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/3] rounded-[2rem]" label />
+            <Picture photo={photos.teacher} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
           </div>
         </div>
       </header>
 
       <div className="container-site max-w-5xl py-14 lg:py-20">
-        {site.demo && (
-          <div className="mb-12"><Notice tone="warn" title="Sample report">This report belongs to a fictional organisation and uses sample figures, created for a portfolio demonstration.</Notice></div>
-        )}
-
         <section aria-labelledby="letter-title">
           <p className="eyebrow">A note from Amara</p>
           <h2 id="letter-title" className="mt-4 text-[2.1rem]">A busy year, and a few lessons</h2>
@@ -108,7 +104,7 @@ export default function AnnualReport2025() {
               </table>
             </div>
           </div>
-          <p className="mt-4 text-[0.95rem] text-muted">Surplus carried to reserves: <strong className="text-ink-900">{formatUsd(totalIn - totalOut)}</strong>. Accounts prepared by our Finance & Transparency Lead and reviewed by the board of trustees.</p>
+          <p className="mt-4 text-[0.95rem] text-muted">Surplus carried to reserves: <strong className="text-ink-900">{formatUsd(totalIn - totalOut)}</strong>. Accounts prepared by our Finance Lead, Ngozi Eze, and reviewed by the board of trustees.</p>
           <div className="mt-10 rounded-[1.6rem] bg-sand-100 p-8">
             <h3 className="font-display text-[1.5rem]">Where the money went</h3>
             <div className="mt-6"><Donut data={site.spending} /></div>

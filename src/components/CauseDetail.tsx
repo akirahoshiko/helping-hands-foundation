@@ -3,7 +3,6 @@ import { Arrow, ButtonLink, Notice, Picture } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { causes, type Cause } from "@/content/causes";
 import { Progress } from "@/components/Widgets";
-import { site } from "@/config/site";
 
 export function CauseDetail({ cause }: { cause: Cause }) {
   const others = causes.filter((c) => c.slug !== cause.slug);
@@ -22,7 +21,7 @@ export function CauseDetail({ cause }: { cause: Cause }) {
             <h1 className="mt-5 text-[2.6rem] sm:text-[3.5rem]">{cause.title}</h1>
             <p className="mt-5 max-w-xl text-[1.15rem] text-muted">{cause.summary}</p>
             <div className="mt-7 max-w-md rounded-2xl border border-sand-200 bg-white p-5">
-              <p className="text-[0.8rem] font-bold tracking-[0.12em] text-sun-600 uppercase">{cause.campaign.name}{site.demo ? " · sample" : ""}</p>
+              <p className="text-[0.8rem] font-bold tracking-[0.12em] text-sun-600 uppercase">{cause.campaign.name}</p>
               <div className="mt-3"><Progress raised={cause.campaign.raised} goal={cause.campaign.goal} /></div>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -33,7 +32,7 @@ export function CauseDetail({ cause }: { cause: Cause }) {
             </div>
           </div>
           <div className="lg:col-span-6">
-            <Picture photo={cause.photo} priority label sizes="(min-width: 1024px) 48vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
+            <Picture photo={cause.photo} priority sizes="(min-width: 1024px) 48vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
           </div>
         </div>
       </section>
@@ -48,7 +47,7 @@ export function CauseDetail({ cause }: { cause: Cause }) {
             </div>
           </Reveal>
           <Reveal className="lg:col-span-5 lg:col-start-8" delay={120}>
-            <Picture photo={cause.secondPhoto} sizes="(min-width: 1024px) 38vw, 100vw" className="aspect-[5/4] rounded-[2rem]" label />
+            <Picture photo={cause.secondPhoto} sizes="(min-width: 1024px) 38vw, 100vw" className="aspect-[5/4] rounded-[2rem]" />
           </Reveal>
         </div>
       </section>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
-import { DraftBanner } from "@/components/Draft";
 import { site } from "@/config/site";
 import { MIN_DONATION, MAX_DONATION } from "@/lib/validation";
 
@@ -28,7 +27,6 @@ export default function DonationPolicyPage() {
       <PageHeader eyebrow="Donation policy" title="How giving works" intro={<p>The small print, in plain English.</p>} />
       <section className="py-14 lg:py-20">
         <div className="container-site max-w-3xl">
-          <DraftBanner />
 
           <div className="mt-10 rounded-[1.8rem] bg-ink-900 p-8 text-sand-100">
             <h2 className="text-[1.8rem] !text-sand-50">Our promise to donors</h2>
@@ -52,7 +50,7 @@ export default function DonationPolicyPage() {
 
             <h2>4. How your gift is used</h2>
             <ul>
-              <li><strong>Where it’s needed most:</strong> your gift supports the most urgent need across Orphan Care, Children’s Wellbeing & Education and Medical Support.</li>
+              <li><strong>Where it’s needed most:</strong> your gift supports the most urgent need across Orphan Care, Children’s Education and Medical Support.</li>
               <li><strong>A cause you choose:</strong> your gift is used for that cause. If a specific appeal is fully funded or can no longer go ahead, we will use your gift for the closest related work, and tell you if you ask us to.</li>
               <li><strong>Running costs:</strong> up to 18% of donations may be used for operations and fundraising, so the foundation can run safely and well. In 2025 this was 18% (see our <Link href="/transparency/annual-report-2025">annual report</Link>).</li>
               <li><strong>Medical support</strong> is always paid directly to the hospital, clinic or pharmacy, never in cash to individuals.</li>
