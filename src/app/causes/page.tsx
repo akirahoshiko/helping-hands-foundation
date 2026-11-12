@@ -15,8 +15,8 @@ export default function CausesPage() {
     <>
       <PageHeader
         eyebrow="Our causes"
-        title="Three causes. One commitment to every child and family we meet."
-        intro={<p>Each cause addresses a need where practical help can change what happens next. Choose one to learn more, or give where support is needed most.</p>}
+        title="What we do"
+        intro={<p>Three areas, picked because a little money makes a real difference in each. You can give to one, or let us put your gift where it’s most needed.</p>}
       />
 
       <section className="py-16 lg:py-24">
@@ -27,19 +27,19 @@ export default function CausesPage() {
                 <Picture photo={cause.photo} sizes="(min-width: 1024px) 48vw, 100vw" className="aspect-[4/3] rounded-[2rem]" label={i === 0} />
               </div>
               <div className={`lg:col-span-5 ${i % 2 ? "lg:order-1" : "lg:col-start-8"}`}>
-                <p className="font-display text-[1.2rem] text-gold-600">0{i + 1}</p>
+                <p className="font-display text-[1.2rem] text-sun-600">0{i + 1}</p>
                 <h2 className="mt-2 text-[2.2rem] sm:text-[2.7rem]">{cause.title}</h2>
                 <p className="mt-4 text-[1.08rem] text-muted">{cause.summary}</p>
                 <ul className="mt-6 space-y-2">
                   {cause.support.map((s) => (
                     <li key={s.title} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400" />
-                      <span><span className="font-semibold text-forest-900">{s.title}.</span> <span className="text-muted">{s.text}</span></span>
+                      <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-400" />
+                      <span><span className="font-semibold text-ink-900">{s.title}.</span> <span className="text-muted">{s.text}</span></span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-6 max-w-md">
-                  <p className="mb-2 text-[0.8rem] font-bold tracking-[0.12em] text-gold-600 uppercase">{cause.campaign.name}</p>
+                  <p className="mb-2 text-[0.8rem] font-bold tracking-[0.12em] text-sun-600 uppercase">{cause.campaign.name}</p>
                   <Progress raised={cause.campaign.raised} goal={cause.campaign.goal} />
                 </div>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -56,12 +56,12 @@ export default function CausesPage() {
 
       <section className="pb-20">
         <div className="container-site">
-          <div className="rounded-[2rem] bg-forest-900 p-8 text-cream-100 sm:p-12 md:flex md:items-center md:justify-between md:gap-10">
+          <div className="rounded-[2rem] bg-ink-900 p-8 text-sand-100 sm:p-12 md:flex md:items-center md:justify-between md:gap-10">
             <div>
-              <h2 className="text-[2rem] !text-cream-50">Not sure which cause to choose?</h2>
-              <p className="mt-2 max-w-xl text-cream-100/80">A gift to “where it’s needed most” lets the foundation direct support to the most urgent need across all three causes.</p>
+              <h2 className="text-[2rem] !text-sand-50">Not sure which cause to choose?</h2>
+              <p className="mt-2 max-w-xl text-sand-100/80">Give to “wherever it’s needed most” and we’ll put it towards whatever is most urgent that month.</p>
             </div>
-            <Link href="/donate?cause=general" className="group mt-6 inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-gold-400 px-6 font-semibold text-forest-950 hover:bg-gold-300 md:mt-0">
+            <Link href="/donate?cause=general" className="group mt-6 inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-sun-400 px-6 font-semibold text-ink-950 hover:bg-sun-300 md:mt-0">
               Give where it’s needed most <Arrow />
             </Link>
           </div>

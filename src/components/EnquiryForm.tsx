@@ -71,10 +71,10 @@ export function EnquiryForm({ kind, deliveryActive }: { kind: Kind; deliveryActi
 
   if (state.phase === "sent") {
     return (
-      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-[1.8rem] border border-forest-700/30 bg-forest-100/60 p-8 outline-none">
+      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-[1.8rem] border border-ink-700/30 bg-ink-100/60 p-8 outline-none">
         <p className="eyebrow">Message delivered</p>
         <h3 className="mt-3 text-[1.9rem]">Thank you, {name.trim().split(" ")[0]}.</h3>
-        <p className="mt-3 text-muted">Your message has reached the foundation’s inbox. We’ll reply to <strong className="text-forest-900">{email.trim()}</strong> as soon as we can.</p>
+        <p className="mt-3 text-muted">Your message has reached the foundation’s inbox. We’ll reply to <strong className="text-ink-900">{email.trim()}</strong> as soon as we can.</p>
         <button type="button" className={buttonClass("outline", "mt-6")} onClick={() => { setMessage(""); setSubject(""); setState({ phase: "idle" }); }}>
           Send another message
         </button>
@@ -84,10 +84,10 @@ export function EnquiryForm({ kind, deliveryActive }: { kind: Kind; deliveryActi
 
   const err = (k: string) => (errors[k] ? <p id={`${uid}-${k}-err`} className="mt-2 text-[0.92rem] font-medium text-danger">{errors[k]}</p> : null);
   const desc = (k: string) => (errors[k] ? `${uid}-${k}-err` : undefined);
-  const input = (k: string) => `mt-2 block w-full rounded-xl border bg-white px-4 py-3 text-[1rem] outline-none transition-colors focus:border-forest-700 focus:ring-2 focus:ring-forest-700/20 ${errors[k] ? "border-danger" : "border-cream-300"}`;
+  const input = (k: string) => `mt-2 block w-full rounded-xl border bg-white px-4 py-3 text-[1rem] outline-none transition-colors focus:border-ink-700 focus:ring-2 focus:ring-ink-700/20 ${errors[k] ? "border-danger" : "border-sand-300"}`;
 
   return (
-    <form ref={formRef} onSubmit={submit} noValidate className="rounded-[1.8rem] border border-cream-200 bg-white p-6 sm:p-9" aria-label={kind === "involvement" ? "Get involved form" : "Contact form"}>
+    <form ref={formRef} onSubmit={submit} noValidate className="rounded-[1.8rem] border border-sand-200 bg-white p-6 sm:p-9" aria-label={kind === "involvement" ? "Get involved form" : "Contact form"}>
       {!deliveryActive && (
         <div className="mb-6">
           <Notice tone="warn" title="Online messages are not switched on yet">
@@ -101,7 +101,7 @@ export function EnquiryForm({ kind, deliveryActive }: { kind: Kind; deliveryActi
           <legend className="text-[0.95rem] font-semibold">I’m interested in</legend>
           <div className="mt-3 flex flex-wrap gap-2">
             {interestValues.map((v, i) => (
-              <label key={v} className={`cursor-pointer rounded-full border px-4 py-2 text-[0.95rem] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-gold-400 ${interest === v ? "border-forest-800 bg-forest-800 text-cream-50" : "border-cream-300 bg-cream-50 text-forest-900 hover:border-forest-700"}`}>
+              <label key={v} className={`cursor-pointer rounded-full border px-4 py-2 text-[0.95rem] font-medium transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-sun-400 ${interest === v ? "border-ink-800 bg-ink-800 text-sand-50" : "border-sand-300 bg-sand-50 text-ink-900 hover:border-ink-700"}`}>
                 <input type="radio" name="interest" value={v} checked={interest === v} onChange={() => { setInterest(v); clear("interest"); }} className="sr-only" data-field={i === 0 ? "interest" : undefined} />
                 {interestLabels[v]}
               </label>

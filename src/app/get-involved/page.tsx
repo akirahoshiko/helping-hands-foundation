@@ -14,25 +14,25 @@ const options = [
   {
     id: "volunteer",
     title: "Volunteer",
-    lead: "Give your time and skills.",
-    text: "We welcome people who can help with mentoring and tutoring, healthcare advice, logistics, fundraising, communications or professional services such as accounting and law.",
-    points: ["Remote and in-person roles, depending on location", "Professional skills are especially valuable", "We’ll talk with you first to find the right fit"],
+    lead: "Give an afternoon",
+    text: "Most of our volunteers have day jobs. They tutor on Saturdays, help pack school kits, drive supplies around, or lend us their skills as nurses, accountants or designers.",
+    points: ["Weekend tutoring and school drives in Lagos", "Remote help with design, writing and accounts", "We’ll have a chat first to find something that fits"],
     photo: photos.community,
   },
   {
     id: "partnership",
-    title: "Corporate partnership",
-    lead: "Reach further, together.",
-    text: "Companies, schools, hospitals, clinics and community organisations can partner with the foundation through sponsorship, employee giving, matched donations or shared projects.",
-    points: ["Sponsorship of a cause or a project", "Employee volunteering and matched giving", "Services or expertise offered pro bono"],
+    title: "Partnerships",
+    lead: "For businesses and schools",
+    text: "Some of our partners sponsor a school drive, some match what their staff give, and a couple of clinics see patients at a reduced rate. If you have an idea, we’d like to hear it.",
+    points: ["Sponsor a school drive or a health day", "Match your staff’s donations", "Offer your services or expertise for free"],
     photo: photos.gathering,
   },
   {
     id: "in-kind",
-    title: "In-kind contributions",
-    lead: "Give what’s needed, not just money.",
-    text: "Practical items can make an immediate difference, from books and school supplies to clothing, bedding and hygiene products. Please get in touch first so we can confirm what is needed and arrange delivery.",
-    points: ["Books, stationery and school bags", "Clothing, bedding and hygiene items", "Please don’t send medicines without arranging it first"],
+    title: "Donate things",
+    lead: "Books, clothes and supplies",
+    text: "We always need school supplies, children’s books, clothes, bedding and toiletries. Send us a message first, so we can tell you what we’re short of and sort out delivery.",
+    points: ["Books, stationery and school bags", "Clothes, bedding and toiletries", "Please don’t send medicines without talking to us first"],
     photo: photos.girlWithBook,
   },
 ];
@@ -42,13 +42,13 @@ export default function GetInvolvedPage() {
     <>
       <PageHeader
         eyebrow="Get involved"
-        title={<>There’s more than one way to <span className="italic text-forest-700">lend a hand.</span></>}
-        intro={<p>Whether you can offer time, expertise, supplies or a partnership, we would love to hear from you.</p>}
+        title={<>Help out <span className="hl">without spending a kobo.</span></>}
+        intro={<p>Time, skills, supplies or a good introduction. All of it helps, and most of what we’ve achieved started with someone offering one of these.</p>}
       >
         <ul className="mt-8 flex flex-wrap gap-3">
           {options.map((o) => (
             <li key={o.id}>
-              <a href={`#${o.id}`} className="inline-flex rounded-full border border-forest-800/20 bg-white px-5 py-2.5 font-semibold text-forest-900 hover:border-forest-800">
+              <a href={`#${o.id}`} className="inline-flex rounded-full border border-ink-800/20 bg-white px-5 py-2.5 font-semibold text-ink-900 hover:border-ink-800">
                 {o.title}
               </a>
             </li>
@@ -70,12 +70,12 @@ export default function GetInvolvedPage() {
                 <ul className="mt-6 space-y-2">
                   {o.points.map((p) => (
                     <li key={p} className="flex gap-3">
-                      <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400" />
+                      <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-400" />
                       <span>{p}</span>
                     </li>
                   ))}
                 </ul>
-                <Link href={`/get-involved?interest=${o.id}#involvement-form`} className="group mt-8 inline-flex items-center gap-2 font-semibold text-forest-800 underline-offset-4 hover:underline">
+                <Link href={`/get-involved?interest=${o.id}#involvement-form`} className="group mt-8 inline-flex items-center gap-2 font-semibold text-ink-800 underline-offset-4 hover:underline">
                   Register your interest <Arrow />
                 </Link>
               </div>
@@ -84,12 +84,12 @@ export default function GetInvolvedPage() {
         </div>
       </div>
 
-      <section id="involvement-form" aria-labelledby="form-title" className="scroll-mt-24 border-t border-cream-200 bg-cream-100 py-16 lg:py-24">
+      <section id="involvement-form" aria-labelledby="form-title" className="scroll-mt-24 border-t border-sand-200 bg-sand-100 py-16 lg:py-24">
         <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="eyebrow">Register your interest</p>
-            <h2 id="form-title" className="mt-4 text-[2.2rem]">Tell us how you’d like to help</h2>
-            <p className="mt-4 text-muted">Share a few details and we’ll be in touch to talk about next steps. There’s no commitment at this stage.</p>
+            <p className="eyebrow">Say hello</p>
+            <h2 id="form-title" className="mt-4 text-[2.2rem]">Tell us what you’d like to do</h2>
+            <p className="mt-4 text-muted">Leave your details and Zainab, our volunteer coordinator, will get back to you within a few days. No commitment.</p>
           </div>
           <div className="lg:col-span-7 lg:col-start-6">
             <EnquirySection kind="involvement" />

@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Serif_Display, Figtree } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { TopBar } from "@/components/TopBar";
 import { site } from "@/config/site";
 import "./globals.css";
 
-const display = DM_Serif_Display({ variable: "--font-dm-serif", weight: "400", style: ["normal", "italic"], subsets: ["latin"], display: "swap" });
-const sans = Figtree({ variable: "--font-figtree", subsets: ["latin"], display: "swap" });
+const display = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"], display: "swap" });
+const sans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export const viewport: Viewport = { themeColor: "#143528" };
+export const viewport: Viewport = { themeColor: "#1b1a17" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

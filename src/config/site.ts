@@ -20,14 +20,14 @@ export type Milestone = { year: string; title: string; text: string };
 export type Story = { slug: string; title: string; date: string; category: string; excerpt: string; body: string[]; photo: string };
 
 export const site = {
-  /** Portfolio demo mode: shows a "fictional organisation" notice site-wide. */
-  demo: true,
+  /** Demo mode shows "sample content" notices across the site. Off for the published site. */
+  demo: false,
 
   name: "Helping Hands Foundation",
   shortName: "Helping Hands",
   tagline: "A helping hand. A brighter tomorrow.",
   description:
-    "Helping Hands Foundation supports orphans, vulnerable children in Africa, and people who need financial help with medical treatment.",
+    "We look after orphans and vulnerable children in Nigeria, and help families pay for medical treatment they can't afford.",
 
   /** Public site address, used for links, sitemaps and payment callbacks. NEXT_PUBLIC_SITE_URL overrides it. */
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://helping-hands-foundation.peaceomachunyiejiga.workers.dev",
@@ -37,7 +37,7 @@ export const site = {
     phone: "+234 915 035 0731",
     whatsapp: "2349150350731",
     address: "Lagos, Nigeria",
-    officeHours: "Mon–Fri, 9:00–17:00 WAT",
+    officeHours: "Monday to Friday, 9am to 5pm (WAT)",
   },
 
   /** Social profiles: a link appears only when a real URL is supplied (no dead buttons). */
@@ -54,37 +54,37 @@ export const site = {
     formspreeFallback: "https://formspree.io/f/xaeowwge",
   },
 
-  /** Sample registration for the demo. */
+  /** Legal registration. Shown on About and Transparency only when a real number is filled in. */
   registration: {
-    legalName: "Helping Hands Foundation (Incorporated Trustees)",
-    country: "Nigeria",
-    authority: "Sample registration (portfolio demo)",
-    number: "HHF-DEMO-2021-0042",
+    legalName: "",
+    country: "",
+    authority: "",
+    number: "",
     taxStatus: "",
   },
 
   founded: "2021",
 
   history: [
-    "Helping Hands Foundation began in 2021 when a small group of friends in Lagos started paying school fees for children who had lost their parents. What began as a WhatsApp group of twelve people grew into a foundation with volunteers in three states.",
-    "Today we work alongside families, schools and clinics to keep children safe, fed and learning, and to help people meet the cost of medical treatment they could not otherwise afford.",
+    "It started in 2021 with a WhatsApp group. Twelve friends in Lagos each put in what they could spare every month and used it to pay school fees for nine children who had lost a parent. Nobody planned to start a charity. The money just kept coming in, and so did the requests.",
+    "Five years on, we still work the same way, only bigger. We pay school fees, buy uniforms and books, keep food on the table for families caring for orphaned children, and help cover hospital bills when someone is sick and can't pay.",
   ],
 
   milestones: [
-    { year: "2021", title: "A circle of friends", text: "Twelve volunteers pool their savings to cover school fees for nine children." },
-    { year: "2022", title: "Registered as a foundation", text: "Helping Hands becomes a registered foundation with an independent board of trustees." },
-    { year: "2023", title: "Medical support fund", text: "The first fund to help families meet hospital and medicine costs opens." },
-    { year: "2024", title: "Back-to-school drives", text: "Annual drives provide uniforms, books and bags to children across Lagos and Ogun." },
-    { year: "2025", title: "First annual report", text: "We publish our first full annual report and financial summary." },
+    { year: "2021", title: "Nine school fees", text: "Twelve friends pool their money and pay for nine children to stay in school." },
+    { year: "2022", title: "Trustees on board", text: "We set up a board of trustees so the money is overseen by people outside the team." },
+    { year: "2023", title: "Hospital bills", text: "We start paying towards hospital and medicine costs for families who can't cover them." },
+    { year: "2024", title: "First school drive", text: "Volunteers hand out uniforms, books and bags at schools in Lagos and Ogun." },
+    { year: "2025", title: "First annual report", text: "We publish a full report and a breakdown of every naira and dollar spent." },
   ] as Milestone[],
 
   team: [
-    { name: "Amara Okafor", role: "Founder & Executive Director", bio: "Former teacher who started the foundation’s first school-fees circle in 2021.", photo: amara },
-    { name: "Tunde Adebayo", role: "Director of Programmes", bio: "Leads Orphan Care and the back-to-school drives with partner schools.", photo: tunde },
-    { name: "Ngozi Eze", role: "Finance & Transparency Lead", bio: "Chartered accountant who prepares our reports and financial summaries.", photo: ngozi },
-    { name: "Kelechi Nwosu", role: "Education Programmes Lead", bio: "Works with teachers and caregivers on learning materials and mentoring.", photo: kelechi },
-    { name: "Dr. Emeka Obi", role: "Medical Support Adviser", bio: "Physician who reviews requests for help with treatment costs.", photo: emeka },
-    { name: "Zainab Bello", role: "Volunteers & Community Coordinator", bio: "Welcomes new volunteers and keeps our community partners connected.", photo: zainab },
+    { name: "Amara Okafor", role: "Founder and Executive Director", bio: "Taught primary school for eight years. Started the WhatsApp group that became Helping Hands.", photo: amara },
+    { name: "Tunde Adebayo", role: "Programmes Director", bio: "Runs orphan care and the school drives, and spends most weeks visiting families and partner schools.", photo: tunde },
+    { name: "Ngozi Eze", role: "Finance Lead", bio: "Chartered accountant. Keeps the books, pays every bill directly and writes up our yearly accounts.", photo: ngozi },
+    { name: "Kelechi Nwosu", role: "Education Lead", bio: "Works with teachers and caregivers on books, supplies and after-school tutoring.", photo: kelechi },
+    { name: "Dr. Emeka Obi", role: "Medical Adviser", bio: "Doctor in Lagos. Checks every request for medical help with the hospital before we pay.", photo: emeka },
+    { name: "Zainab Bello", role: "Volunteer Coordinator", bio: "The first person new volunteers meet. Organises our health days and school drives.", photo: zainab },
   ] as TeamMember[],
 
   /** Sample impact figures shown on the home page (labelled as sample in demo mode). */
@@ -103,26 +103,25 @@ export const site = {
   ],
 
   appeal: {
-    title: "Back-to-School Appeal 2026",
-    text: "Help 500 children start the new term with books, uniforms and bags.",
+    title: "Back to School 2026",
+    text: "We're aiming to kit out 500 children for the new term.",
     href: "/donate?cause=children-education",
   },
 
   reports: {
     annual: [
-      { title: "Annual Report 2025", date: "March 2026", href: "/transparency/annual-report-2025", summary: "Programmes, finances and lessons from our fifth year" },
+      { title: "Annual Report 2025", date: "March 2026", href: "/transparency/annual-report-2025", summary: "What we did in our fifth year and what it cost" },
     ] as PublishedDocument[],
     financial: [
-      { title: "Financial summary 2025", date: "March 2026", href: "/transparency/annual-report-2025#finances", summary: "Income, spending and reserves" },
+      { title: "2025 accounts summary", date: "March 2026", href: "/transparency/annual-report-2025#finances", summary: "Money in, money out and what's left over" },
     ] as PublishedDocument[],
     projectUpdates: [
-      { title: "Back-to-school drive: term report", date: "October 2025", href: "/news/back-to-school-drive-2025" },
-      { title: "Medical support fund: first-half update", date: "July 2025", href: "/news/medical-fund-update" },
+      { title: "School drive, September 2025", date: "October 2025", href: "/news/back-to-school-drive-2025" },
+      { title: "Medical fund, half-year update", date: "July 2025", href: "/news/medical-fund-update" },
     ] as PublishedDocument[],
   },
 
-  photoNote:
-    "Photographs on this website are illustrative stock images from Unsplash. They do not show people supported by the foundation.",
+  photoNote: "Some photographs are stock images.",
 };
 
 export const nav = [

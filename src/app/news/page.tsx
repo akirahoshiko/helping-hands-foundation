@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   return (
     <>
-      <PageHeader eyebrow="News & stories" title="From the field" intro={<p>Updates on our programmes, our volunteers and the communities we work with. We never share personal stories or photographs of the people we support without their informed consent.</p>} />
+      <PageHeader eyebrow="News & stories" title="News" intro={<p>What we’ve been up to at the schools, the clinics and our volunteer days. We don’t share the names or photos of the families we support.</p>} />
       <section className="py-16 lg:py-20">
         <div className="container-site grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {stories.map((s, i) => (

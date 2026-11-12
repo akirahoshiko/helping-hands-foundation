@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function DonatePage() {
   return (
     <>
-      <section className="bg-cream-100">
+      <section className="bg-sand-100">
         <div className="container-site pt-12 pb-10 sm:pt-16">
           <p className="eyebrow">Donate</p>
           <h1 className="mt-4 max-w-3xl text-[2.5rem] sm:text-[3.4rem]">
-            Your gift is a <span className="italic text-forest-700">helping hand.</span>
+            Your gift is a <span className="hl">helping hand.</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-[1.1rem] text-muted">Choose an amount in US dollars, decide where it should go, and confirm before you pay. It takes about a minute.</p>
+          <p className="mt-4 max-w-2xl text-[1.1rem] text-muted">Pick an amount and a cause, check the details, and you’re done. It takes about a minute.</p>
         </div>
       </section>
       <section className="py-10 lg:py-14">
@@ -41,8 +41,8 @@ async function DonateWithStatus() {
 function FormSkeleton() {
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-12" aria-busy="true" aria-label="Loading donation form">
-      <div className="h-[42rem] animate-pulse rounded-[1.8rem] bg-cream-100 lg:col-span-7" />
-      <div className="h-64 animate-pulse rounded-[1.8rem] bg-cream-100 lg:col-span-4 lg:col-start-9" />
+      <div className="h-[42rem] animate-pulse rounded-[1.8rem] bg-sand-100 lg:col-span-7" />
+      <div className="h-64 animate-pulse rounded-[1.8rem] bg-sand-100 lg:col-span-4 lg:col-start-9" />
     </div>
   );
 }

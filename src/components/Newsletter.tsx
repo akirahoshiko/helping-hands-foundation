@@ -36,8 +36,8 @@ export function Newsletter() {
 
   if (state.phase === "done") {
     return (
-      <p role="status" className="rounded-2xl bg-forest-800 px-5 py-4 text-cream-50">
-        Thank you! You’re on the list for occasional updates. <span className="text-cream-100/70">You can unsubscribe at any time.</span>
+      <p role="status" className="rounded-2xl bg-ink-800 px-5 py-4 text-sand-50">
+        Thank you! You’re on the list for occasional updates. <span className="text-sand-100/70">You can unsubscribe at any time.</span>
       </p>
     );
   }
@@ -55,9 +55,9 @@ export function Newsletter() {
           onChange={(e) => { setEmail(e.target.value); if (state.phase === "error") setState({ phase: "idle" }); }}
           aria-invalid={state.phase === "error"}
           aria-describedby={state.phase === "error" ? `${uid}-err` : undefined}
-          className="min-h-12 flex-1 rounded-full border border-cream-100/25 bg-forest-900 px-5 text-cream-50 placeholder:text-cream-100/50 outline-none focus:border-gold-300"
+          className="min-h-12 flex-1 rounded-full border border-sand-100/25 bg-ink-900 px-5 text-sand-50 placeholder:text-sand-100/50 outline-none focus:border-sun-300"
         />
-        <button type="submit" disabled={state.phase === "sending"} className="min-h-12 rounded-full bg-gold-400 px-6 font-bold text-forest-950 hover:bg-gold-300 disabled:opacity-70">
+        <button type="submit" disabled={state.phase === "sending"} className="min-h-12 rounded-full bg-sun-400 px-6 font-bold text-ink-950 hover:bg-sun-300 disabled:opacity-70">
           {state.phase === "sending" ? "Subscribing…" : "Subscribe"}
         </button>
       </div>
@@ -65,7 +65,7 @@ export function Newsletter() {
         <label htmlFor={`${uid}-w`}>Website</label>
         <input id={`${uid}-w`} tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
       </div>
-      {state.phase === "error" && <p id={`${uid}-err`} role="alert" className="mt-2 text-[0.9rem] text-gold-300">{state.message}</p>}
+      {state.phase === "error" && <p id={`${uid}-err`} role="alert" className="mt-2 text-[0.9rem] text-sun-300">{state.message}</p>}
     </form>
   );
 }

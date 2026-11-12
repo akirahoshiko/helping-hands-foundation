@@ -11,41 +11,41 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "Dignity", text: "Every person we support is a person first, never a case or a photograph. We protect their privacy and speak about them with respect." },
-  { title: "Compassion", text: "We listen before we act, and we offer help with warmth, patience and care." },
-  { title: "Community participation", text: "Families, caregivers and local leaders know their needs best. We work alongside them, not around them." },
-  { title: "Transparency", text: "Supporters deserve to know how their gifts are used. We report openly on our work and our finances, every year." },
+  { title: "People, not cases", text: "We don't put children's faces on posters or share anyone's story without asking. Everyone we help is treated the way we'd want our own family treated." },
+  { title: "Listen first", text: "We sit down with families before deciding anything. What they tell us they need usually isn't what we'd have guessed." },
+  { title: "Work with the community", text: "Teachers, nurses, pastors and imams often know which families are struggling long before we do. We rely on them." },
+  { title: "Be open about money", text: "We publish our accounts every year. If you want to know where your gift went, ask us and we'll tell you." },
 ];
 
 const approach = [
-  { title: "Listen", text: "Understand each situation directly, with the people involved and those who care for them." },
-  { title: "Assess fairly", text: "Use clear, consistent criteria so support reaches those who need it most." },
-  { title: "Support practically", text: "Provide concrete help (essentials, school costs, treatment costs) paid to schools and providers where possible." },
-  { title: "Follow up and report", text: "Check that support made a difference, learn from it, and share what we learn." },
+  { title: "We visit", text: "Someone from the team meets the family, the school or the hospital in person." },
+  { title: "We check", text: "We confirm the fees or the bill with the school or hospital before agreeing to anything." },
+  { title: "We pay directly", text: "Money goes to the school, the hospital or the supplier, not to individuals." },
+  { title: "We follow up", text: "We go back a few months later to see how things are going, and we write it up in our reports." },
 ];
 
 export default function AboutPage() {
   const r = site.registration;
   return (
     <>
-      <PageHeader eyebrow="About us" title={<>We exist so that <span className="italic text-forest-700">no one is left to struggle alone.</span></>} intro={<p>Helping Hands Foundation supports orphans, vulnerable children and families who need help paying for medical treatment, with a team that knows the communities it serves.</p>} />
+      <PageHeader eyebrow="About us" title={<>A small foundation that <span className="hl">does what it says.</span></>} intro={<p>Helping Hands Foundation supports orphans, vulnerable children and families who need help paying for medical treatment, with a team that knows the communities it serves.</p>} />
 
       <section aria-labelledby="story-title" className="py-20 lg:py-28">
         <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <p className="eyebrow">Our story</p>
-            <h2 id="story-title" className="mt-4 text-[2.3rem] sm:text-[2.9rem]">It started with nine school fees.</h2>
+            <h2 id="story-title" className="mt-4 text-[2.3rem] sm:text-[2.9rem]">Where it began</h2>
             <div className="mt-6 space-y-4 text-[1.1rem] text-muted">
               {site.history.map((p) => <p key={p.slice(0, 32)}>{p}</p>)}
             </div>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
-              <div className="rounded-[1.6rem] bg-forest-900 p-7 text-cream-100">
-                <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Our mission</p>
-                <p className="mt-3 font-display text-[1.35rem] leading-snug text-cream-50">To give orphaned and vulnerable children the care, nourishment and education they need to thrive, and to help people access the treatment that protects their lives.</p>
+              <div className="rounded-[1.6rem] bg-ink-900 p-7 text-sand-100">
+                <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Our mission</p>
+                <p className="mt-3 font-display text-[1.35rem] leading-snug text-sand-50">Keep children who have lost a parent fed, safe and in school, and help families pay for treatment they can’t afford.</p>
               </div>
-              <div className="rounded-[1.6rem] bg-gold-400 p-7 text-forest-950">
+              <div className="rounded-[1.6rem] bg-sun-400 p-7 text-ink-950">
                 <p className="text-[0.8rem] font-semibold tracking-[0.16em] uppercase">Our vision</p>
-                <p className="mt-3 font-display text-[1.35rem] leading-snug">Communities where every child grows up safe, healthy and learning, and no family gives up on treatment because of its cost.</p>
+                <p className="mt-3 font-display text-[1.35rem] leading-snug">No child leaves school because of money, and no family stops treatment halfway because the bill got too big.</p>
               </div>
             </div>
           </Reveal>
@@ -56,14 +56,14 @@ export default function AboutPage() {
       </section>
 
       {/* Milestones */}
-      <section aria-labelledby="journey-title" className="bg-cream-100 py-20 lg:py-24">
+      <section aria-labelledby="journey-title" className="bg-sand-100 py-20 lg:py-24">
         <div className="container-site">
-          <Reveal><SectionIntro eyebrow="Our journey" title="Five years of showing up" id="journey-title" /></Reveal>
+          <Reveal><SectionIntro eyebrow="Our journey" title="How we got here" id="journey-title" /></Reveal>
           <ol className="relative mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6">
-            <span aria-hidden="true" className="absolute top-[1.15rem] right-0 left-0 hidden h-0.5 bg-gold-400/60 md:block" />
+            <span aria-hidden="true" className="absolute top-[1.15rem] right-0 left-0 hidden h-0.5 bg-sun-400/60 md:block" />
             {site.milestones.map((m, i) => (
               <Reveal as="li" key={m.year} delay={i * 80} className="relative">
-                <span className="relative z-10 inline-flex h-9 items-center rounded-full bg-forest-800 px-4 font-display text-[1.1rem] text-gold-300">{m.year}</span>
+                <span className="relative z-10 inline-flex h-9 items-center rounded-full bg-ink-800 px-4 font-display text-[1.1rem] text-sun-300">{m.year}</span>
                 <h3 className="mt-4 font-sans text-[1.1rem] font-semibold">{m.title}</h3>
                 <p className="mt-1 text-[0.97rem] text-muted">{m.text}</p>
               </Reveal>
@@ -72,17 +72,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="values-title" className="bg-forest-900 py-20 text-cream-100 lg:py-28">
+      <section aria-labelledby="values-title" className="bg-ink-900 py-20 text-sand-100 lg:py-28">
         <div className="container-site">
           <Reveal>
-            <p className="eyebrow !text-gold-300">Our values</p>
-            <h2 id="values-title" className="mt-4 max-w-2xl text-[2.2rem] !text-cream-50 sm:text-[2.8rem]">What guides every decision we make</h2>
+            <p className="eyebrow !text-sun-300">Our values</p>
+            <h2 id="values-title" className="mt-4 max-w-2xl text-[2.2rem] !text-sand-50 sm:text-[2.8rem]">What we care about</h2>
           </Reveal>
           <dl className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 80} className="border-t border-cream-100/20 pt-6">
-                <dt className="font-display text-[1.7rem] text-gold-300">{v.title}</dt>
-                <dd className="mt-2 max-w-md text-[1.05rem] text-cream-100/80">{v.text}</dd>
+              <Reveal key={v.title} delay={i * 80} className="border-t border-sand-100/20 pt-6">
+                <dt className="font-display text-[1.7rem] text-sun-300">{v.title}</dt>
+                <dd className="mt-2 max-w-md text-[1.05rem] text-sand-100/80">{v.text}</dd>
               </Reveal>
             ))}
           </dl>
@@ -91,11 +91,11 @@ export default function AboutPage() {
 
       <section aria-labelledby="approach-title" className="py-20 lg:py-28">
         <div className="container-site">
-          <Reveal><SectionIntro eyebrow="Our approach" title="Practical help, offered the right way" id="approach-title" /></Reveal>
+          <Reveal><SectionIntro eyebrow="Our approach" title="How we help a family" id="approach-title" /></Reveal>
           <ol className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {approach.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 80} className="rounded-[1.6rem] border border-cream-200 bg-white p-7">
-                <span className="font-display text-[2.4rem] leading-none text-gold-400">{i + 1}</span>
+              <Reveal as="li" key={s.title} delay={i * 80} className="rounded-[1.6rem] border border-sand-200 bg-white p-7">
+                <span className="font-display text-[2.4rem] leading-none text-sun-400">{i + 1}</span>
                 <h3 className="mt-4 font-sans text-[1.15rem] font-semibold">{s.title}</h3>
                 <p className="mt-2 text-muted">{s.text}</p>
               </Reveal>
@@ -105,20 +105,20 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section id="team" aria-labelledby="team-title" className="scroll-mt-24 bg-cream-100 py-20 lg:py-28">
+      <section id="team" aria-labelledby="team-title" className="scroll-mt-24 bg-sand-100 py-20 lg:py-28">
         <div className="container-site">
-          <Reveal><SectionIntro eyebrow="Our people" title="The team behind the foundation" id="team-title"><p>A small staff team, an independent board of trustees and more than 150 volunteers.</p></SectionIntro></Reveal>
+          <Reveal><SectionIntro eyebrow="Our people" title="The team" id="team-title"><p>Six people run the foundation day to day. A board of trustees keeps an eye on the money, and about 150 volunteers help out.</p></SectionIntro></Reveal>
           <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {site.team.map((m, i) => (
               <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group overflow-hidden rounded-[1.8rem] bg-white">
                 {m.photo && (
-                  <div className="relative aspect-[5/6] overflow-hidden bg-cream-200">
+                  <div className="relative aspect-[5/6] overflow-hidden bg-sand-200">
                     <Image src={m.photo} alt={`${m.name}, ${m.role}`} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" placeholder="blur" className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]" />
                   </div>
                 )}
                 <div className="p-6">
                   <h3 className="font-display text-[1.45rem]">{m.name}</h3>
-                  <p className="text-[0.95rem] font-semibold text-gold-600">{m.role}</p>
+                  <p className="text-[0.95rem] font-semibold text-sun-600">{m.role}</p>
                   {m.bio && <p className="mt-2 text-muted">{m.bio}</p>}
                 </div>
               </Reveal>
@@ -131,7 +131,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container-site grid grid-cols-1 gap-8 lg:grid-cols-2">
           {hasRegistration() && (
-            <div className="rounded-[1.8rem] border border-cream-200 bg-white p-8">
+            <div className="rounded-[1.8rem] border border-sand-200 bg-white p-8">
               <p className="eyebrow">Registration</p>
               <dl className="mt-6 grid grid-cols-1 gap-4 text-[0.98rem] sm:grid-cols-2">
                 <div><dt className="text-muted">Legal name</dt><dd className="font-semibold">{r.legalName}</dd></div>
@@ -143,11 +143,11 @@ export default function AboutPage() {
             </div>
           )}
           {site.demo && (
-            <div id="demo" className="scroll-mt-24 rounded-[1.8rem] bg-forest-900 p-8 text-cream-100">
-              <p className="eyebrow !text-gold-300">About this website</p>
-              <h2 className="mt-4 text-[1.8rem] !text-cream-50">A portfolio demonstration</h2>
-              <p className="mt-3 text-cream-100/80">Helping Hands Foundation is a fictional organisation created to showcase this website. The registration, team, figures, stories and reports are sample content, and the photographs are illustrative stock images. Donations are not processed: the payment flow runs in demo mode.</p>
-              <p className="mt-3 text-cream-100/80">Designed and built by Peace Ejiga.</p>
+            <div id="demo" className="scroll-mt-24 rounded-[1.8rem] bg-ink-900 p-8 text-sand-100">
+              <p className="eyebrow !text-sun-300">About this website</p>
+              <h2 className="mt-4 text-[1.8rem] !text-sand-50">A portfolio demonstration</h2>
+              <p className="mt-3 text-sand-100/80">Helping Hands Foundation is a fictional organisation created to showcase this website. The registration, team, figures, stories and reports are sample content, and the photographs are illustrative stock images. Donations are not processed: the payment flow runs in demo mode.</p>
+              <p className="mt-3 text-sand-100/80">Designed and built by Peace Ejiga.</p>
             </div>
           )}
         </div>

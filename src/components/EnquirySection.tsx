@@ -6,7 +6,7 @@ import { EnquiryForm } from "./EnquiryForm";
 /** Server wrapper: checks at request time whether form delivery is configured, then renders the form. */
 export function EnquirySection({ kind }: { kind: "contact" | "involvement" }) {
   return (
-    <Suspense fallback={<div className="h-[34rem] animate-pulse rounded-[1.8rem] bg-cream-100" aria-busy="true" aria-label="Loading form" />}>
+    <Suspense fallback={<div className="h-[34rem] animate-pulse rounded-[1.8rem] bg-sand-100" aria-busy="true" aria-label="Loading form" />}>
       <WithDelivery kind={kind} />
     </Suspense>
   );

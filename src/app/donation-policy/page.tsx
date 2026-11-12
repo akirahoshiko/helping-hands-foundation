@@ -25,17 +25,17 @@ export default function DonationPolicyPage() {
   const email = site.contact.email;
   return (
     <>
-      <PageHeader eyebrow="Donation policy" title="How giving works" intro={<p>Clear terms for every gift, so you know exactly what happens when you donate.</p>} />
+      <PageHeader eyebrow="Donation policy" title="How giving works" intro={<p>The small print, in plain English.</p>} />
       <section className="py-14 lg:py-20">
         <div className="container-site max-w-3xl">
           <DraftBanner />
 
-          <div className="mt-10 rounded-[1.8rem] bg-forest-900 p-8 text-cream-100">
-            <h2 className="text-[1.8rem] !text-cream-50">Our promise to donors</h2>
-            <p className="mt-2 text-cream-100/75">Inspired by the Donor Bill of Rights followed by charities worldwide.</p>
+          <div className="mt-10 rounded-[1.8rem] bg-ink-900 p-8 text-sand-100">
+            <h2 className="text-[1.8rem] !text-sand-50">Our promise to donors</h2>
+            <p className="mt-2 text-sand-100/75">Inspired by the Donor Bill of Rights followed by charities worldwide.</p>
             <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {promises.map((p) => (
-                <li key={p} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold-400" />{p}</li>
+                <li key={p} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sun-400" />{p}</li>
               ))}
             </ul>
           </div>

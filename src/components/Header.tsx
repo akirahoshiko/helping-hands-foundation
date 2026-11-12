@@ -61,8 +61,8 @@ export function Header() {
 
   return (
     // No backdrop blur while the menu is open: a backdrop filter would trap the fixed menu panel inside the header.
-    <header className={`sticky top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${open ? "border-b border-cream-200 bg-cream-50" : scrolled ? "border-b border-cream-200 bg-cream-50/95 shadow-[0_8px_30px_-20px_rgba(15,42,31,0.45)] backdrop-blur-md" : "border-b border-transparent bg-cream-50"}`}>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-forest-900 focus:px-4 focus:py-2 focus:text-cream-50">
+    <header className={`sticky top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${open ? "border-b border-sand-200 bg-sand-50" : scrolled ? "border-b border-sand-200 bg-sand-50/95 shadow-[0_8px_30px_-20px_rgba(15,42,31,0.45)] backdrop-blur-md" : "border-b border-transparent bg-sand-50"}`}>
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-ink-900 focus:px-4 focus:py-2 focus:text-sand-50">
         Skip to content
       </a>
       <div className="container-site flex h-[4.5rem] items-center justify-between gap-3 sm:gap-6 lg:h-20">
@@ -75,7 +75,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`relative rounded-full px-4 py-2 text-[0.97rem] font-medium transition-colors ${isActive(item.href) ? "text-forest-900" : "text-muted hover:text-forest-900"} after:absolute after:inset-x-4 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full after:bg-gold-400 after:transition-transform after:duration-300 ${isActive(item.href) ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"}`}
+                  className={`relative rounded-full px-4 py-2 text-[0.97rem] font-medium transition-colors ${isActive(item.href) ? "text-ink-900" : "text-muted hover:text-ink-900"} after:absolute after:inset-x-4 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full after:bg-sun-400 after:transition-transform after:duration-300 ${isActive(item.href) ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"}`}
                 >
                   {item.label}
                 </Link>
@@ -94,7 +94,7 @@ export function Header() {
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-forest-800/20 text-forest-900 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-800/20 text-ink-900 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -113,25 +113,25 @@ export function Header() {
         id="mobile-menu"
         ref={panelRef}
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[4.5rem] overflow-y-auto border-t border-cream-200 bg-cream-50 lg:hidden"
+        className="fixed inset-x-0 bottom-0 top-[4.5rem] overflow-y-auto border-t border-sand-200 bg-sand-50 lg:hidden"
       >
         <nav aria-label="Mobile" className="container-site py-6">
-          <ul className="divide-y divide-cream-200">
+          <ul className="divide-y divide-sand-200">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`flex items-center justify-between py-4 font-display text-[1.7rem] ${isActive(item.href) ? "text-forest-900" : "text-forest-800/80"}`}
+                  className={`flex items-center justify-between py-4 font-display text-[1.7rem] ${isActive(item.href) ? "text-ink-900" : "text-ink-800/80"}`}
                 >
                   {item.label}
-                  {isActive(item.href) && <span className="h-2 w-2 rounded-full bg-gold-400" aria-hidden="true" />}
+                  {isActive(item.href) && <span className="h-2 w-2 rounded-full bg-sun-400" aria-hidden="true" />}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/transparency" onClick={() => setOpen(false)} className="flex py-4 font-display text-[1.7rem] text-forest-800/80">
+              <Link href="/transparency" onClick={() => setOpen(false)} className="flex py-4 font-display text-[1.7rem] text-ink-800/80">
                 Transparency
               </Link>
             </li>

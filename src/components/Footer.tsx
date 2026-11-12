@@ -11,13 +11,13 @@ export function Footer() {
   const socials = socialLinks();
   const year = 2026;
   return (
-    <footer className="bg-forest-950 text-cream-100">
+    <footer className="bg-ink-950 text-sand-100">
       {/* Newsletter (Pencils of Promise / Habitat pattern) */}
-      <div className="border-b border-cream-100/10">
+      <div className="border-b border-sand-100/10">
         <div className="container-site grid grid-cols-1 items-center gap-6 py-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <h2 className="text-[1.9rem] !text-cream-50">Stay close to the work.</h2>
-            <p className="mt-1 text-cream-100/75">Occasional updates on our programmes and appeals. No spam, unsubscribe any time.</p>
+            <h2 className="text-[1.9rem] !text-sand-50">Get our updates</h2>
+            <p className="mt-1 text-sand-100/75">A short email every couple of months with news from the schools and clinics. Unsubscribe whenever you like.</p>
           </div>
           <div className="lg:col-span-5 lg:col-start-8"><Newsletter /></div>
         </div>
@@ -26,14 +26,14 @@ export function Footer() {
       <div className="container-site grid grid-cols-1 gap-12 py-14 md:grid-cols-12 md:py-16">
         <div className="md:col-span-4">
           <Logo tone="light" />
-          <p className="mt-5 max-w-sm text-[0.98rem] text-cream-200/80">{site.description}</p>
-          <Link href="/donate" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-gold-400 px-5 font-bold text-forest-950 hover:bg-gold-300">
+          <p className="mt-5 max-w-sm text-[0.98rem] text-sand-200/80">{site.description}</p>
+          <Link href="/donate" className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-sun-400 px-5 font-bold text-ink-950 hover:bg-sun-300">
             Make a donation <span aria-hidden="true">→</span>
           </Link>
         </div>
 
         <nav aria-label="Footer: the foundation" className="md:col-span-2">
-          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Foundation</h2>
+          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Foundation</h2>
           <ul className="mt-4 space-y-2.5 text-[0.97rem]">
             <li><Link className={linkCls} href="/about">About us</Link></li>
             <li><Link className={linkCls} href="/about#team">Our team</Link></li>
@@ -44,7 +44,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label="Footer: causes" className="md:col-span-3">
-          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Our causes</h2>
+          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Our causes</h2>
           <ul className="mt-4 space-y-2.5 text-[0.97rem]">
             {causes.map((cause) => (
               <li key={cause.slug}><Link className={linkCls} href={`/causes/${cause.slug}`}>{cause.title}</Link></li>
@@ -54,30 +54,29 @@ export function Footer() {
         </nav>
 
         <div className="md:col-span-3">
-          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-gold-300 uppercase">Contact</h2>
-          <ul className="mt-4 space-y-2.5 text-[0.97rem] text-cream-200/90">
+          <h2 className="font-sans text-[0.78rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Contact</h2>
+          <ul className="mt-4 space-y-2.5 text-[0.97rem] text-sand-200/90">
             {c.email && <li><a className={`${linkCls} break-all`} href={`mailto:${c.email}`}>{c.email}</a></li>}
             {c.phone && <li><a className={linkCls} href={`tel:${c.phone.replace(/[^\d+]/g, "")}`}>{c.phone}</a></li>}
             {c.whatsapp && <li><a className={linkCls} href={`https://wa.me/${c.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>}
             {c.address && <li>{c.address}</li>}
-            {c.officeHours && <li className="text-cream-200/70">{c.officeHours}</li>}
+            {c.officeHours && <li className="text-sand-200/70">{c.officeHours}</li>}
           </ul>
           {socials.length > 0 && (
             <ul className="mt-5 flex flex-wrap gap-3 text-[0.9rem]">
               {socials.map((s) => (
-                <li key={s.key}><a className="rounded-full border border-cream-100/25 px-3 py-1 hover:border-cream-100" href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>
+                <li key={s.key}><a className="rounded-full border border-sand-100/25 px-3 py-1 hover:border-sand-100" href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>
               ))}
             </ul>
           )}
         </div>
       </div>
 
-      <div className="border-t border-cream-100/10">
-        <div className="container-site flex flex-col gap-3 py-6 text-[0.85rem] text-cream-200/65 lg:flex-row lg:items-center lg:justify-between">
+      <div className="border-t border-sand-100/10">
+        <div className="container-site flex flex-col gap-3 py-6 text-[0.85rem] text-sand-200/65 lg:flex-row lg:items-center lg:justify-between">
           <p>
-            © {year} {site.name}.{" "}
-            {site.demo && <>A portfolio demo of a fictional organisation, designed &amp; built by Peace Ejiga. </>}
-            {site.photoNote} <Link href="/photo-credits" className="underline underline-offset-2 hover:text-white">Photo credits</Link>
+            © {year} {site.name}. {site.photoNote} <Link href="/photo-credits" className="underline underline-offset-2 hover:text-white">Photo credits</Link>
+            <span className="mx-2" aria-hidden="true">·</span>Website by Peace Ejiga
           </p>
           <p className="flex shrink-0 gap-4 whitespace-nowrap">
             <Link href="/privacy" className="hover:text-white hover:underline">Privacy</Link>

@@ -32,8 +32,8 @@ async function Result({ searchParams }: { searchParams: PageProps<"/donate/compl
   const config = getPaymentConfig();
   if (!config.active) {
     return (
-      <Status title="Online payments are not active" tone="warn">
-        <p>The foundation hasn’t switched on online payments yet, so no payment can be confirmed here. If you reached this page by mistake, no money was taken.</p>
+      <Status title="We couldn’t check this payment" tone="warn">
+        <p>Online card payments aren’t running at the moment, so there’s nothing to confirm here and no money has been taken. If you think you were charged, please contact us.</p>
       </Status>
     );
   }
@@ -68,14 +68,14 @@ async function Result({ searchParams }: { searchParams: PageProps<"/donate/compl
       <div role="status">
         <p className="eyebrow">Donation received</p>
         <h1 className="mt-4 text-[2.6rem] sm:text-[3.4rem]">
-          Thank you. <span className="italic text-forest-700">Your helping hand has arrived.</span>
+          Thank you. <span className="hl">Your helping hand has arrived.</span>
         </h1>
         <p className="mt-5 text-[1.12rem] text-muted">
-          Paystack has confirmed your gift of <strong className="text-forest-900">{formatUsd(payment.amount)} {payment.currency}</strong>
+          Paystack has confirmed your gift of <strong className="text-ink-900">{formatUsd(payment.amount)} {payment.currency}</strong>
           {payment.frequency === "monthly" ? " as a monthly donation" : ""}
-          {payment.designation ? <> to <strong className="text-forest-900">{designationLabel(payment.designation)}</strong></> : null}. A receipt has been sent to {payment.email ? <strong className="text-forest-900">{payment.email}</strong> : "your email address"}.
+          {payment.designation ? <> to <strong className="text-ink-900">{designationLabel(payment.designation)}</strong></> : null}. A receipt has been sent to {payment.email ? <strong className="text-ink-900">{payment.email}</strong> : "your email address"}.
         </p>
-        <dl className="mt-8 grid grid-cols-1 gap-4 rounded-2xl border border-cream-200 bg-white p-6 text-[0.98rem] sm:grid-cols-2">
+        <dl className="mt-8 grid grid-cols-1 gap-4 rounded-2xl border border-sand-200 bg-white p-6 text-[0.98rem] sm:grid-cols-2">
           <div><dt className="text-muted">Reference</dt><dd className="font-semibold break-all">{payment.reference}</dd></div>
           {payment.paidAt && <div><dt className="text-muted">Paid</dt><dd className="font-semibold">{new Date(payment.paidAt).toUTCString().replace(" GMT", " UTC")}</dd></div>}
         </dl>
@@ -112,7 +112,7 @@ function Status({ title, tone, children }: { title: string; tone: "warn" | "info
       </div>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <ButtonLink href="/donate" variant="gold">Back to the donation form</ButtonLink>
-        <Link href="/contact" className="inline-flex min-h-12 items-center font-semibold text-forest-800 underline underline-offset-4">Contact us</Link>
+        <Link href="/contact" className="inline-flex min-h-12 items-center font-semibold text-ink-800 underline underline-offset-4">Contact us</Link>
       </div>
     </div>
   );
