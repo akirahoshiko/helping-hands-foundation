@@ -17,7 +17,7 @@ export function GiftCalculator() {
 
   return (
     <div className="grid grid-cols-1 overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_70px_-40px_rgba(15,42,31,0.5)] lg:grid-cols-12">
-      <div className="bg-ink-800 p-7 text-sand-100 sm:p-10 lg:col-span-7">
+      <div className="bg-sand-100 p-7 text-ink sm:p-10 lg:col-span-7">
         <div role="tablist" aria-label="Choose a cause" className="flex flex-wrap gap-2">
           {causes.map((c, k) => (
             <button
@@ -26,13 +26,13 @@ export function GiftCalculator() {
               aria-selected={k === causeIdx}
               type="button"
               onClick={() => setCauseIdx(k)}
-              className={`rounded-full px-4 py-2 text-[0.9rem] font-semibold transition-colors ${k === causeIdx ? "bg-sun-400 text-ink-950" : "bg-ink-700/60 text-sand-100 hover:bg-ink-700"}`}
+              className={`rounded-full px-4 py-2 text-[0.9rem] font-semibold transition-colors ${k === causeIdx ? "bg-sun-400 text-ink-950" : "border border-sand-200 bg-white text-ink-700 hover:border-ink-700"}`}
             >
               {c.title}
             </button>
           ))}
         </div>
-        <label htmlFor={`${uid}-r`} className="mt-9 block text-[0.85rem] font-semibold tracking-[0.14em] text-sun-300 uppercase">Pick an amount</label>
+        <label htmlFor={`${uid}-r`} className="mt-9 block text-[0.85rem] font-semibold tracking-[0.14em] text-sun-600 uppercase">Pick an amount</label>
         <input
           id={`${uid}-r`}
           type="range"
@@ -42,11 +42,11 @@ export function GiftCalculator() {
           value={i}
           onChange={(e) => setI(Number(e.target.value))}
           aria-valuetext={`$${amount}`}
-          className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-full bg-ink-950/60 accent-sun-400"
+          className="mt-4 h-2 w-full cursor-pointer appearance-none rounded-full bg-sand-300 accent-sun-400"
         />
-        <div className="mt-3 flex justify-between text-[0.95rem] font-semibold text-sand-100/80" aria-hidden="true">
+        <div className="mt-3 flex justify-between text-[0.95rem] font-semibold text-muted" aria-hidden="true">
           {STEPS.map((s, k) => (
-            <button key={s} type="button" tabIndex={-1} onClick={() => setI(k)} className={k === i ? "text-sun-300" : ""}>${s}</button>
+            <button key={s} type="button" tabIndex={-1} onClick={() => setI(k)} className={k === i ? "text-sun-600" : ""}>${s}</button>
           ))}
         </div>
       </div>

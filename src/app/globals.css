@@ -49,9 +49,9 @@
   }
   h1, h2, h3 {
     font-family: var(--font-display);
-    font-weight: 650;
-    line-height: 1.04;
-    letter-spacing: -0.025em;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     color: var(--color-ink-900);
     text-wrap: balance;
   }
@@ -80,7 +80,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--color-sun-600);
   }
   .eyebrow::before {
@@ -92,12 +92,12 @@
   }
   /* Marker-pen highlight for key words in headings */
   .hl {
-    background: linear-gradient(transparent 60%, rgb(240 106 42 / 0.32) 60%, rgb(240 106 42 / 0.32) 92%, transparent 92%);
+    background: none;
     padding-inline: 0.06em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .hl-dark { color: var(--color-sun-300); }
+  .hl-dark { color: var(--color-sand-200); }
   .prose-hh p + p { margin-top: 1rem; }
   .prose-hh h2 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
   .prose-hh h3 { font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.5rem; }

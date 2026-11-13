@@ -39,11 +39,11 @@ export default function AboutPage() {
               {site.history.map((p) => <p key={p.slice(0, 32)}>{p}</p>)}
             </div>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
-              <div className="rounded-[1.6rem] bg-ink-900 p-7 text-sand-100">
-                <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Our mission</p>
-                <p className="mt-3 font-display text-[1.35rem] leading-snug text-sand-50">Keep children who have lost a parent fed, safe and in school, and help families pay for treatment they can’t afford.</p>
+              <div className="rounded-[1.6rem] border border-sand-200 bg-white p-7 text-ink">
+                <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-sun-600 uppercase">Our mission</p>
+                <p className="mt-3 font-display text-[1.35rem] leading-snug text-ink-900">Keep children who have lost a parent fed, safe and in school, and help families pay for treatment they can’t afford.</p>
               </div>
-              <div className="rounded-[1.6rem] bg-sun-400 p-7 text-ink-950">
+              <div className="rounded-[1.6rem] bg-ink-100 p-7 text-ink-900">
                 <p className="text-[0.8rem] font-semibold tracking-[0.16em] uppercase">Our vision</p>
                 <p className="mt-3 font-display text-[1.35rem] leading-snug">No child leaves school because of money, and no family stops treatment halfway because the bill got too big.</p>
               </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <span aria-hidden="true" className="absolute top-[1.15rem] right-0 left-0 hidden h-0.5 bg-sun-400/60 lg:block" />
             {site.milestones.map((m, i) => (
               <Reveal as="li" key={m.year} delay={i * 80} className="relative">
-                <span className="relative z-10 inline-flex h-9 items-center rounded-full bg-ink-800 px-4 font-display text-[1.1rem] text-sun-300">{m.year}</span>
+                <span className="relative z-10 inline-flex h-9 items-center rounded-full border border-sand-200 bg-white px-4 font-display text-[1.1rem] text-sun-600">{m.year}</span>
                 <h3 className="mt-4 font-sans text-[1.1rem] font-semibold">{m.title}</h3>
                 <p className="mt-1 text-[0.97rem] text-muted">{m.text}</p>
               </Reveal>
@@ -72,17 +72,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="values-title" className="bg-ink-900 py-20 text-sand-100 lg:py-28">
+      <section aria-labelledby="values-title" className="py-20 text-ink lg:py-28">
         <div className="container-site">
           <Reveal>
-            <p className="eyebrow !text-sun-300">Our values</p>
-            <h2 id="values-title" className="mt-4 max-w-2xl text-[2.2rem] !text-sand-50 sm:text-[2.8rem]">What we care about</h2>
+            <p className="eyebrow">Our values</p>
+            <h2 id="values-title" className="mt-4 max-w-2xl text-[2.2rem] sm:text-[2.8rem]">What we care about</h2>
           </Reveal>
           <dl className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
             {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 80} className="border-t border-sand-100/20 pt-6">
-                <dt className="font-display text-[1.7rem] text-sun-300">{v.title}</dt>
-                <dd className="mt-2 max-w-md text-[1.05rem] text-sand-100/80">{v.text}</dd>
+              <Reveal key={v.title} delay={i * 80} className="border-t border-sand-200 pt-6">
+                <dt className="font-display text-[1.7rem] text-sun-600">{v.title}</dt>
+                <dd className="mt-2 max-w-md text-[1.05rem] text-muted">{v.text}</dd>
               </Reveal>
             ))}
           </dl>

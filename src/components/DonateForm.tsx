@@ -235,8 +235,8 @@ export function DonateForm({ payments }: { payments: Status }) {
         {(step === "review" || step === "redirecting") && (
           <section aria-labelledby={`${uid}-review`} className="mt-6 rounded-[1.8rem] border border-sand-200 bg-white p-6 sm:p-9">
             <h2 id={`${uid}-review`} ref={reviewRef} tabIndex={-1} className="text-[1.9rem] outline-none">Please confirm your gift</h2>
-            <p className="mt-5 rounded-2xl bg-ink-900 p-6 font-display text-[1.6rem] leading-snug text-sand-50 sm:text-[1.9rem]">
-              {formatUsd(amount)} <span className="font-sans text-[1rem] font-semibold tracking-wide text-sun-300">{CURRENCY}</span>, {frequencyText}, to <span className="hl-dark">{designationLabel(designation)}</span>.
+            <p className="mt-5 rounded-2xl bg-sand-100 p-6 font-display text-[1.6rem] leading-snug text-ink-900 sm:text-[1.9rem]">
+              {formatUsd(amount)} <span className="font-sans text-[1rem] font-semibold tracking-wide text-sun-600">{CURRENCY}</span>, {frequencyText}, to <span className="text-sun-600">{designationLabel(designation)}</span>.
             </p>
             <dl className="mt-6 grid grid-cols-1 gap-4 text-[0.98rem] sm:grid-cols-2">
               <div><dt className="text-muted">Amount</dt><dd className="font-semibold">{formatUsd(amount)} {CURRENCY}</dd></div>
@@ -279,13 +279,13 @@ export function DonateForm({ payments }: { payments: Status }) {
 
       <aside className="lg:col-span-4 lg:col-start-9" aria-label="Your gift at a glance">
         <div className="space-y-6 lg:sticky lg:top-28">
-          <div className="rounded-[1.8rem] bg-ink-900 p-7 text-sand-100">
-            <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-sun-300 uppercase">Your gift</p>
-            <p className="mt-3 font-display text-[2.6rem] leading-none text-sand-50" aria-live="polite">
+          <div className="rounded-[1.8rem] border border-sand-200 bg-sand-100 p-7 text-ink">
+            <p className="text-[0.8rem] font-semibold tracking-[0.16em] text-sun-600 uppercase">Your gift</p>
+            <p className="mt-3 font-display text-[2.6rem] font-medium leading-none text-ink-900" aria-live="polite">
               {amountOk ? formatUsd(amount) : "$0"}
-              <span className="ml-2 font-sans text-[0.95rem] font-semibold text-sun-300">{CURRENCY}</span>
+              <span className="ml-2 font-sans text-[0.95rem] font-semibold text-sun-600">{CURRENCY}</span>
             </p>
-            <p className="mt-2 text-sand-100/80">{frequency === "monthly" ? "Every month" : "One-time"} · {designationLabel(designation)}</p>
+            <p className="mt-2 text-muted">{frequency === "monthly" ? "Every month" : "One-time"} · {designationLabel(designation)}</p>
           </div>
           <ul className="space-y-4 rounded-[1.8rem] border border-sand-200 bg-white p-7 text-[0.97rem]">
             {[

@@ -52,28 +52,28 @@ export function CauseDetail({ cause }: { cause: Cause }) {
         </div>
       </section>
 
-      <section aria-labelledby="support-title" className="bg-ink-900 py-20 text-sand-100 lg:py-24">
+      <section aria-labelledby="support-title" className="bg-sand-100 py-20 text-ink lg:py-24">
         <div className="container-site">
           <Reveal>
-            <p className="eyebrow !text-sun-300">What we do</p>
-            <h2 id="support-title" className="mt-4 max-w-2xl text-[2.1rem] !text-sand-50 sm:text-[2.5rem]">Where the money goes</h2>
+            <p className="eyebrow">What we do</p>
+            <h2 id="support-title" className="mt-4 max-w-2xl text-[2.1rem] sm:text-[2.5rem]">Where the money goes</h2>
           </Reveal>
           <ul className="mt-12 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-3">
             {cause.support.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 90} className="border-t border-sand-100/20 pt-6">
-                <h3 className="font-display text-[1.55rem] !text-sun-300">{s.title}</h3>
-                <p className="mt-2 text-sand-100/80">{s.text}</p>
+              <Reveal as="li" key={s.title} delay={i * 90} className="border-t border-sand-200 pt-6">
+                <h3 className="font-display text-[1.55rem]">{s.title}</h3>
+                <p className="mt-2 text-muted">{s.text}</p>
               </Reveal>
             ))}
           </ul>
-          <h3 className="mt-16 font-sans text-[0.85rem] font-semibold tracking-[0.16em] !text-sun-300 uppercase">What your gift pays for</h3>
+          <h3 className="mt-16 font-sans text-[0.85rem] font-semibold tracking-[0.16em] uppercase">What your gift pays for</h3>
           <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cause.gifts.map((g) => (
               <li key={g.amount}>
-                <Link href={`/donate?amount=${g.amount}&cause=${cause.designation}`} className="group flex h-full flex-col rounded-[1.4rem] bg-ink-800 p-6 transition-colors hover:bg-ink-700">
-                  <span className="font-display text-[2.4rem] leading-none text-sun-300">${g.amount}</span>
-                  <span className="mt-3 text-sand-100/90">{g.text}</span>
-                  <span className="mt-auto pt-4 text-[0.92rem] font-semibold text-sun-300">Give ${g.amount} <span aria-hidden="true">→</span></span>
+                <Link href={`/donate?amount=${g.amount}&cause=${cause.designation}`} className="group flex h-full flex-col rounded-[1.4rem] border border-sand-200 bg-white p-6 transition-colors hover:border-sun-300">
+                  <span className="font-display text-[2.4rem] leading-none text-sun-600">${g.amount}</span>
+                  <span className="mt-3 text-muted">{g.text}</span>
+                  <span className="mt-auto pt-4 text-[0.92rem] font-semibold text-sun-600">Give ${g.amount} <span aria-hidden="true">→</span></span>
                 </Link>
               </li>
             ))}

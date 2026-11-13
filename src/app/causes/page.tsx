@@ -56,10 +56,10 @@ export default function CausesPage() {
 
       <section className="pb-20">
         <div className="container-site">
-          <div className="rounded-[2rem] bg-ink-900 p-8 text-sand-100 sm:p-12 md:flex md:items-center md:justify-between md:gap-10">
+          <div className="rounded-[2rem] border border-sand-200 bg-white p-8 text-ink sm:p-12 md:flex md:items-center md:justify-between md:gap-10">
             <div>
-              <h2 className="text-[2rem] !text-sand-50">Not sure which cause to choose?</h2>
-              <p className="mt-2 max-w-xl text-sand-100/80">Give to “wherever it’s needed most” and we’ll put it towards whatever is most urgent that month.</p>
+              <h2 className="text-[2rem]">Not sure which cause to choose?</h2>
+              <p className="mt-2 max-w-xl text-muted">Give to “wherever it’s needed most” and we’ll put it towards whatever is most urgent that month.</p>
             </div>
             <Link href="/donate?cause=general" className="group mt-6 inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-sun-400 px-6 font-semibold text-ink-950 hover:bg-sun-300 md:mt-0">
               Give where it’s needed most <Arrow />

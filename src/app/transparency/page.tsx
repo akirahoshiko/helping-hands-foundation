@@ -70,18 +70,18 @@ export default function TransparencyPage() {
         </div>
       </section>
 
-      <section aria-labelledby="commit-title" className="bg-ink-900 py-16 text-sand-100 lg:py-20">
+      <section aria-labelledby="commit-title" className="bg-sand-100 py-16 text-ink lg:py-20">
         <div className="container-site">
           <Reveal>
-            <p className="eyebrow !text-sun-300">Our promises</p>
-            <h2 id="commit-title" className="mt-4 max-w-2xl text-[2.2rem] !text-sand-50 sm:text-[2.6rem]">Five things we promise our donors</h2>
+            <p className="eyebrow">Our promises</p>
+            <h2 id="commit-title" className="mt-4 max-w-2xl text-[2.2rem] sm:text-[2.6rem]">Five things we promise our donors</h2>
           </Reveal>
           <ol className="mt-10 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {commitments.map((c, i) => (
               <Reveal as="li" key={c.title} delay={i * 70} className="border-t-2 border-sun-400 pt-5">
-                <span className="text-[0.85rem] font-semibold text-sun-300">0{i + 1}</span>
-                <h3 className="mt-2 font-sans text-[1.15rem] font-semibold !text-sand-50">{c.title}</h3>
-                <p className="mt-2 text-sand-100/75">{c.text}</p>
+                <span className="text-[0.85rem] font-semibold text-sun-600">0{i + 1}</span>
+                <h3 className="mt-2 font-sans text-[1.15rem] font-semibold">{c.title}</h3>
+                <p className="mt-2 text-muted">{c.text}</p>
               </Reveal>
             ))}
           </ol>

@@ -28,9 +28,9 @@ export default function DonationPolicyPage() {
       <section className="py-14 lg:py-20">
         <div className="container-site max-w-3xl">
 
-          <div className="mt-10 rounded-[1.8rem] bg-ink-900 p-8 text-sand-100">
-            <h2 className="text-[1.8rem] !text-sand-50">Our promise to donors</h2>
-            <p className="mt-2 text-sand-100/75">Inspired by the Donor Bill of Rights followed by charities worldwide.</p>
+          <div className="mt-10 rounded-[1.8rem] border border-sand-200 bg-white p-8 text-ink">
+            <h2 className="text-[1.8rem]">Our promise to donors</h2>
+            <p className="mt-2 text-muted">Inspired by the Donor Bill of Rights followed by charities worldwide.</p>
             <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {promises.map((p) => (
                 <li key={p} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sun-400" />{p}</li>

@@ -38,14 +38,14 @@ export default function AnnualReport2025() {
   const totalOut = sum(spending);
   return (
     <>
-      <header className="bg-ink-900 text-sand-100">
+      <header className="bg-sand-100 text-ink">
         <div className="container-site grid grid-cols-1 items-center gap-10 py-14 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-7">
-            <nav aria-label="Breadcrumb" className="text-[0.92rem] text-sand-100/70">
-              <Link href="/transparency" className="text-sun-300 underline-offset-4 hover:underline">Transparency</Link> <span aria-hidden="true">/</span> Annual Report 2025
+            <nav aria-label="Breadcrumb" className="text-[0.92rem] text-muted">
+              <Link href="/transparency" className="text-sun-600 underline-offset-4 hover:underline">Transparency</Link> <span aria-hidden="true">/</span> Annual Report 2025
             </nav>
-            <h1 className="mt-5 text-[2.8rem] !text-sand-50 sm:text-[3.8rem]">Annual Report <span className="hl-dark">2025</span></h1>
-            <p className="mt-4 max-w-xl text-[1.12rem] text-sand-100/85">What we did in 2025, what it cost and what we’d do differently. Published March 2026.</p>
+            <h1 className="mt-5 text-[2.8rem] sm:text-[3.8rem]">Annual Report 2025</h1>
+            <p className="mt-4 max-w-xl text-[1.12rem] text-muted">What we did in 2025, what it cost and what we’d do differently. Published March 2026.</p>
           </div>
           <div className="lg:col-span-5">
             <Picture photo={photos.teacher} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/3] rounded-[2rem]" />
@@ -69,7 +69,7 @@ export default function AnnualReport2025() {
           <h2 id="hl-title" className="text-[2rem]">2025 at a glance</h2>
           <dl className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {highlights.map((h) => (
-              <div key={h.label} className="flex flex-col rounded-[1.4rem] bg-sun-400 p-6 text-ink-950">
+              <div key={h.label} className="flex flex-col rounded-[1.4rem] border border-sand-200 bg-white p-6 text-ink-900">
                 <dt className="order-2 mt-1 text-[0.95rem] font-medium">{h.label}</dt>
                 <dd className="order-1 font-display text-[2.6rem] leading-none">{h.value}</dd>
               </div>
